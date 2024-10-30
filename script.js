@@ -1,22 +1,23 @@
-// JavaScript for Tab Navigation
-const tabs = document.querySelectorAll('.tabs a');
-const contents = document.querySelectorAll('.tab-content');
+// ฟังก์ชันสำหรับการจัดการ Tab Navigation
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('.section');
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', function (e) {
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
         e.preventDefault();
-        // Remove active class from all tabs and contents
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
 
-        // Add active class to the clicked tab and corresponding content
-        const target = this.getAttribute('href').substring(1);
-        document.getElementById(`${target}-content`).classList.add('active');
+        // ลบคลาส active ทั้งหมด
+        navLinks.forEach(item => item.classList.remove('active'));
+        sections.forEach(section => section.classList.remove('active'));
+
+        // เพิ่มคลาส active ให้กับลิงก์และส่วนที่เลือก
         this.classList.add('active');
+        const target = this.getAttribute('href').substring(1);
+        document.getElementById(target).classList.add('active');
     });
 });
 
-// Form Submission
+// การจัดการฟอร์ม
 var form = document.getElementById('myForm');
 var modal = document.getElementById('myModal');
 var modalMessage = document.getElementById('modalMessage');
@@ -34,28 +35,28 @@ form.onsubmit = function(event) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); // Debugging
-        spinnerModal.style.display = 'none'; // Hide spinner modal
+        console.log(data); // ตรวจสอบข้อมูลที่ได้รับ
+        spinnerModal.style.display = 'none'; // ซ่อน spinner modal
 
         if (data.success) {
-            modalMessage.innerHTML = '<span class="alert-icon alert-success">&#x2714;</span> Booking successfully saved!';
+            modalMessage.innerHTML = '<i class="fas fa-check-circle" style="color: green; font-size: 48px;"></i><br>Booking successfully saved!';
         } else {
-            modalMessage.innerHTML = '<span class="alert-icon alert-error">&#x2716;</span> ' + data.message;
+            modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>' + data.message;
         }
 
         modal.style.display = "flex";
 
         if (data.success) {
-            form.reset(); // Reset form on success
+            form.reset(); // ล้างฟอร์มเมื่อบันทึกสำเร็จ
         }
     })
     .catch(error => {
-        spinnerModal.style.display = 'none'; // Hide spinner modal
-        modalMessage.innerHTML = '<span class="alert-icon alert-error">&#x2716;</span> There was an error.';
+        spinnerModal.style.display = 'none'; // ซ่อน spinner modal
+        modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>There was an error.';
         modal.style.display = "flex";
     });
 
-    spinnerModal.style.display = 'flex'; // Show spinner modal during submission
+    spinnerModal.style.display = 'flex'; // แสดง spinner modal ขณะส่งข้อมูล
 }
 
 function closeModal() {
