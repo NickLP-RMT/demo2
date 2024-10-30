@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจองห้องประชุม</title>
+    <!-- ลิงก์ไปยังไฟล์ CSS ภายนอก -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- ลิงก์ไปยังไลบรารีไอคอน (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- ลิงก์ไปยัง Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- แถบเมนูการนำทาง -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="#">
+                <i class="fas fa-calendar-check"></i> ระบบจองห้องประชุม
+            </a>
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="#booking" class="active">จองห้อง</a></li>
+            <li><a href="#calendarDay">ปฏิทินรายวัน</a></li>
+            <li><a href="#calendarMonth">ปฏิทินรายเดือน</a></li>
+            <li><a href="#hrTranslator">สำหรับ HR & ล่าม</a></li>
+        </ul>
+    </nav>
+
+    <!-- เนื้อหาหลัก -->
+    <main>
+        <!-- ส่วนจองห้อง -->
+        <section id="booking" class="tab-content active">
+            <div class="form-container">
+                <h2>ฟอร์มการจองห้องประชุม</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="date">วันที่:</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="translatorName">ห้องประชุม:</label>
+                        <select id="translatorName" name="translatorName" required>
+                            <option value="" disabled selected>เลือกห้องประชุม</option>
+                            <option value="MeetingRoom1">ห้องประชุม 1</option>
+                            <option value="MeetingRoom2">ห้องประชุม 2</option>
+                            <option value="MeetingRoom3">ห้องประชุม 3</option>
+                            <option value="MeetingRoom4">ห้องประชุม 4</option>
+                            <option value="MeetingRoom5">ห้องประชุม 5</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bookingBy">จองโดย:</label>
+                        <input type="text" id="bookingBy" name="bookingBy" required>
+                    </div>
+
+                    <div class="form-group time-group">
+                        <div>
+                            <label for="timeFrom">เวลาเริ่มต้น:</label>
+                            <input type="time" id="timeFrom" name="timeFrom" required>
+                        </div>
+                        <div>
+                            <label for="timeTo">เวลาสิ้นสุด:</label>
+                            <input type="time" id="timeTo" name="timeTo" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="forWork">หัวข้อการประชุม:</label>
+                        <textarea id="forWork" name="forWork" required></textarea>
+                    </div>
+
+                    <button type="submit">ส่งคำขอจอง</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ส่วนปฏิทินรายวัน -->
+        <section id="calendarDay" class="tab-content">
+            <h2>ปฏิทินรายวัน</h2>
+            <div id="calendarContainer">
+                <!-- เนื้อหาของปฏิทินจะโหลดที่นี่ -->
+            </div>
+        </section>
+
+        <!-- ส่วนปฏิทินรายเดือน -->
+        <section id="calendarMonth" class="tab-content">
+            <h2>ปฏิทินรายเดือน</h2>
+            <p>ส่วนนี้จะแสดงปฏิทินทั้งเดือน</p>
+        </section>
+
+        <!-- ส่วนสำหรับ HR & ล่าม -->
+        <section id="hrTranslator" class="tab-content">
+            <h2>สำหรับ HR & ล่าม</h2>
+            <p>ส่วนนี้สำหรับ HR และล่ามเท่านั้น</p>
+        </section>
+    </main>
+
+    <!-- โมดอลสำหรับแสดงข้อความ -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button class="close-btn" onclick="closeModal()">ปิด</button>
+        </div>
+    </div>
+
+    <!-- โมดอลสำหรับแสดงสปินเนอร์โหลด -->
+    <div id="spinnerModal" class="spinner-modal">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- สคริปต์ JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
