@@ -2,97 +2,119 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>Booking System</title>
+    <title>ระบบจองล่าม</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- เพิ่ม Bootstrap CSS สำหรับการจัดรูปแบบเพิ่มเติม -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- เพิ่ม Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- นำเข้า Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- นำเข้าไอคอนจาก Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <!-- Navigation Tabs -->
-    <div class="tabs">
-        <a href="#booking" id="tab-booking" class="active">Booking</a>
-        <a href="#calendarDay" id="tab-calendarDay">View Calendar</a>
-        <a href="#calendarMonth" id="tab-calendarMonth">View Full Month</a>
-        <a href="#hrTranslator" id="tab-hrTranslator">HR & Translator Only</a>
-    </div>
+    <!-- แถบนำทาง -->
+    <nav class="navbar">
+        <div class="logo">Booking System</div>
+        <ul class="nav-links">
+            <li><a href="#booking" class="active">Booking</a></li>
+            <li><a href="#calendar">View Calendar</a></li>
+            <li><a href="#translator">Translator Only</a></li>
+        </ul>
+    </nav>
 
-    <!-- Tab Contents -->
-    <div id="booking-content" class="tab-content active">
-        <div class="form-container">
-            <h2>Booking Form</h2>
+    <!-- ส่วนของฟอร์มจอง -->
+    <section id="booking" class="section active">
+        <div class="container">
+            <h2><i class="fas fa-calendar-alt"></i> Booking Form</h2>
             <form id="myForm">
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" required>
+                <!-- ฟิลด์ฟอร์มต่างๆ -->
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
 
-                <label for="translatorName">Translator Name:</label>
-                <select id="translatorName" name="translatorName" required>
-                    <option value="" disabled selected>Select Translator</option>
-                    <option value="SOM SAN">SOM SAN</option>
-                    <option value="GOOK SAN">GOOK SAN</option>
-                    <option value="POOKY SAN">POOKY SAN</option>
-                    <option value="L SAN">L SAN</option>
-                </select>
+                <div class="form-group">
+                    <label for="translatorName">Translator Name:</label>
+                    <select id="translatorName" name="translatorName" required>
+                        <option value="" disabled selected>Select Translator</option>
+                        <option value="SOM SAN">SOM SAN</option>
+                        <option value="GOOK SAN">GOOK SAN</option>
+                        <option value="POOKY SAN">POOKY SAN</option>
+                        <option value="L SAN">L SAN</option>
+                    </select>
+                </div>
 
-                <label for="bookingBy">Booking By:</label>
-                <input type="text" id="bookingBy" name="bookingBy" required>
+                <div class="form-group">
+                    <label for="bookingBy">Booking By:</label>
+                    <input type="text" id="bookingBy" name="bookingBy" required>
+                </div>
 
-                <label for="timeFrom">Time From:</label>
-                <select id="timeFrom" name="timeFrom" required>
-                    <!-- Time options -->
-                    <option value="" disabled selected>HH:MM</option>
-                    <!-- เพิ่มตัวเลือกเวลา -->
-                    <!-- ... -->
-                </select>
+                <div class="form-group time-group">
+                    <div>
+                        <label for="timeFrom">Time From:</label>
+                        <select id="timeFrom" name="timeFrom" required>
+                            <!-- ตัวเลือกเวลา -->
+                            <option value="" disabled selected>HH:MM</option>
+                            <!-- เพิ่มตัวเลือกเวลาตามต้องการ -->
+                            <option value="07:00">07:00</option>
+                            <!-- ... -->
+                            <option value="20:00">20:00</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="timeTo">Time To:</label>
+                        <select id="timeTo" name="timeTo" required>
+                            <!-- ตัวเลือกเวลา -->
+                            <option value="" disabled selected>HH:MM</option>
+                            <!-- เพิ่มตัวเลือกเวลาตามต้องการ -->
+                            <option value="07:30">07:30</option>
+                            <!-- ... -->
+                            <option value="20:00">20:00</option>
+                        </select>
+                    </div>
+                </div>
 
-                <label for="timeTo">Time To:</label>
-                <select id="timeTo" name="timeTo" required>
-                    <!-- Time options -->
-                    <option value="" disabled selected>HH:MM</option>
-                    <!-- เพิ่มตัวเลือกเวลา -->
-                    <!-- ... -->
-                </select>
+                <div class="form-group">
+                    <label for="forWork">For Work:</label>
+                    <textarea id="forWork" name="forWork" required></textarea>
+                </div>
 
-                <label for="forWork">For Work:</label>
-                <textarea id="forWork" name="forWork" required></textarea>
-
-                <input type="submit" value="Submit">
+                <button type="submit" class="btn-submit">Submit</button>
             </form>
         </div>
-    </div>
+    </section>
 
-    <!-- ส่วนของ Tab อื่นๆ (สามารถเพิ่มเนื้อหาตามต้องการ) -->
-    <div id="calendarDay-content" class="tab-content">
-        <h2>View Calendar by Day</h2>
-        <!-- เนื้อหา -->
-    </div>
+    <!-- ส่วนของปฏิทิน -->
+    <section id="calendar" class="section">
+        <div class="container">
+            <h2><i class="fas fa-calendar"></i> View Calendar</h2>
+            <!-- เนื้อหาของปฏิทิน -->
+            <a href="calendar2.html" class="btn">Open Calendar</a>
+        </div>
+    </section>
 
-    <div id="calendarMonth-content" class="tab-content">
-        <h2>View Full Month</h2>
-        <!-- เนื้อหา -->
-    </div>
+    <!-- ส่วนของ Translator Only -->
+    <section id="translator" class="section">
+        <div class="container">
+            <h2><i class="fas fa-user-shield"></i> Translator Only</h2>
+            <!-- เนื้อหา -->
+            <a href="login.html" class="btn">Translator Login</a>
+        </div>
+    </section>
 
-    <div id="hrTranslator-content" class="tab-content">
-        <h2>HR & Translator Only</h2>
-        <!-- เนื้อหา -->
-    </div>
-
-    <!-- Spinner Modal -->
-    <div id="spinnerModal" class="spinner-modal">
-        <div class="spinner"></div>
-    </div>
-
-    <!-- Response Modal -->
+    <!-- Modal แสดงผลลัพธ์ -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <p id="modalMessage"></p>
+            <span id="modalMessage"></span>
             <button class="close-btn" onclick="closeModal()">Close</button>
         </div>
     </div>
 
-    <!-- Include JavaScript -->
+    <!-- Modal แสดง Spinner -->
+    <div id="spinnerModal" class="spinner-modal">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- นำเข้าไฟล์ JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
