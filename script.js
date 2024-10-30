@@ -11,7 +11,7 @@ form.onsubmit = function(event) {
   var formData = new FormData(form);
 
   // เปลี่ยน 'YOUR_WEB_APP_URL' เป็น URL ของ Web App ที่คุณได้จากการ Deploy Google Apps Script
-  fetch('https://script.google.com/macros/s/YOUR_WEB_APP_URL/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbxhVD0_-g7VKhYcOKMRTCaRx_OmoxgTCoIactfbWBRvL7v-MOXKlOabsXkF40Jd263B/exec', {
     method: 'POST',
     mode: 'cors',
     body: formData
