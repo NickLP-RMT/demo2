@@ -1,66 +1,51 @@
-/* Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
-    color: #333;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
 }
 
-/* Navbar Styles */
-.navbar {
+/* Tabs Navigation */
+.tabs {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tabs a {
+    padding: 15px 25px;
+    margin: 0 10px;
+    border-radius: 30px;
+    background-color: #e7e7e7;
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tabs a.active {
     background-color: #2196F3;
-    padding: 10px 20px;
+    color: white;
 }
 
-.navbar-logo a {
-    color: #fff;
-    font-size: 24px;
-    text-decoration: none;
-    font-weight: 600;
+.tabs a:hover {
+    background-color: #2196F3;
+    color: white;
 }
 
-.navbar-logo i {
-    margin-right: 10px;
-}
-
-.navbar-menu {
-    list-style: none;
-    display: flex;
-}
-
-.navbar-menu li {
-    margin-left: 20px;
-}
-
-.navbar-menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.navbar-menu a:hover,
-.navbar-menu a.active {
-    background-color: #1976d2;
-}
-
-/* Main Content Styles */
-main {
-    padding: 40px 20px;
-}
-
+/* Tab Content */
 .tab-content {
     display: none;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .tab-content.active {
@@ -69,16 +54,13 @@ main {
 
 /* Form Styles */
 .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
+    background-color: #fff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-container h2 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #333;
     text-align: center;
     position: relative;
@@ -86,9 +68,7 @@ main {
 }
 
 .form-container h2::before {
-    content: '\f274'; /* Font Awesome Unicode for calendar-check */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
+    content: '\1F4C5';
     font-size: 30px;
     position: absolute;
     left: 0;
@@ -109,88 +89,45 @@ main {
     border-radius: 2px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
+label {
     font-weight: 500;
     margin-bottom: 5px;
     display: block;
     color: #333;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+input[type="text"],
+input[type="date"],
+select,
+textarea {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
+    margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
-.form-group textarea {
+textarea {
     resize: vertical;
-    min-height: 100px;
 }
 
-.time-group {
-    display: flex;
-    justify-content: space-between;
-}
-
-.time-group > div {
-    width: 48%;
-}
-
-button[type="submit"] {
+input[type="submit"] {
     width: 100%;
-    padding: 15px;
-    background-color: #4CAF50;
+    padding: 12px;
+    background-color: #2196F3;
     border: none;
     border-radius: 5px;
     color: white;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
     transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-/* Calendar and Translator Buttons */
-.calendar-btn,
-.translator-btn {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    padding: 12px;
-    margin-top: 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.calendar-btn {
-    background-color: #2196F3;
-    color: white;
-}
-
-.calendar-btn:hover {
+input[type="submit"]:hover {
     background-color: #1976d2;
-}
-
-.translator-btn {
-    background-color: #ffeb3b;
-    color: black;
-}
-
-.translator-btn:hover {
-    background-color: #fdd835;
 }
 
 /* Modal Styles */
@@ -211,10 +148,10 @@ button[type="submit"]:hover {
 .modal-content {
     background-color: white;
     margin: auto;
-    padding: 30px;
+    padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 10px;
     text-align: center;
 }
@@ -222,8 +159,8 @@ button[type="submit"]:hover {
 .close-btn {
     background-color: #4CAF50;
     color: white;
-    padding: 12px 20px;
-    margin-top: 20px;
+    padding: 10px 20px;
+    margin-top: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -249,12 +186,12 @@ button[type="submit"]:hover {
 }
 
 .spinner {
-    border: 12px solid #f3f3f3;
+    border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 12px solid #3498db;
-    width: 90px;
-    height: 90px;
-    animation: spin 1.5s linear infinite;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
@@ -262,38 +199,20 @@ button[type="submit"]:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Other Section Styles */
-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+.alert-icon {
+    font-weight: bold;
+    margin-right: 10px;
 }
 
-section p {
-    font-size: 18px;
-    color: #555;
-    text-align: center;
+.alert-error {
+    color: red;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar-menu {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.alert-success {
+    color: green;
+}
 
-    .navbar-menu li {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-
-    .time-group {
-        flex-direction: column;
-    }
-
-    .time-group > div {
-        width: 100%;
-        margin-bottom: 20px;
-    }
+/* Background Gradient */
+body {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
 }
