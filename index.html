@@ -1,118 +1,179 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบจองห้องประชุม</title>
-    <!-- ลิงก์ไปยังไฟล์ CSS ภายนอก -->
+    <title>Meeting Room Booking System</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="styles.css">
-    <!-- ลิงก์ไปยังไลบรารีไอคอน (Font Awesome) -->
+    <!-- Link to Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- ลิงก์ไปยัง Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- แถบเมนูการนำทาง -->
+    <!-- Navigation Menu -->
     <nav class="navbar">
         <div class="navbar-logo">
             <a href="#">
-                <i class="fas fa-calendar-check"></i> ระบบจองห้องประชุม
+                <i class="fas fa-calendar-check"></i> Meeting Room Booking System
             </a>
         </div>
         <ul class="navbar-menu">
-            <li><a href="#booking" class="active">จองห้อง</a></li>
-            <li><a href="#calendarDay">ปฏิทินรายวัน</a></li>
-            <li><a href="#calendarMonth">ปฏิทินรายเดือน</a></li>
-            <li><a href="#hrTranslator">สำหรับ HR & ล่าม</a></li>
+            <li><a href="#booking" class="active">Booking</a></li>
+            <li><a href="#calendarDay">View Calendar</a></li>
+            <li><a href="#calendarMonth">View Full Month</a></li>
+            <li><a href="#hrTranslator">For HR & Translators</a></li>
         </ul>
     </nav>
 
-    <!-- เนื้อหาหลัก -->
+    <!-- Main Content -->
     <main>
-        <!-- ส่วนจองห้อง -->
+        <!-- Booking Section -->
         <section id="booking" class="tab-content active">
             <div class="form-container">
-                <h2>ฟอร์มการจองห้องประชุม</h2>
+                <h2>Booking Form</h2>
                 <form id="bookingForm">
                     <div class="form-group">
-                        <label for="date">วันที่:</label>
+                        <label for="date">Date:</label>
                         <input type="date" id="date" name="date" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="translatorName">ห้องประชุม:</label>
-                        <select id="translatorName" name="translatorName" required>
-                            <option value="" disabled selected>เลือกห้องประชุม</option>
-                            <option value="MeetingRoom1">ห้องประชุม 1</option>
-                            <option value="MeetingRoom2">ห้องประชุม 2</option>
-                            <option value="MeetingRoom3">ห้องประชุม 3</option>
-                            <option value="MeetingRoom4">ห้องประชุม 4</option>
-                            <option value="MeetingRoom5">ห้องประชุม 5</option>
+                        <label for="meetingRoom">Meeting Room:</label>
+                        <select id="meetingRoom" name="meetingRoom" required>
+                            <option value="" disabled selected>Select Meeting Room</option>
+                            <option value="MeetingRoom1">Meeting Room 1</option>
+                            <option value="MeetingRoom2">Meeting Room 2</option>
+                            <option value="MeetingRoom3">Meeting Room 3</option>
+                            <option value="MeetingRoom4">Meeting Room 4</option>
+                            <option value="MeetingRoom5">Meeting Room 5</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="bookingBy">จองโดย:</label>
+                        <label for="bookingBy">Booking By:</label>
                         <input type="text" id="bookingBy" name="bookingBy" required>
                     </div>
 
                     <div class="form-group time-group">
                         <div>
-                            <label for="timeFrom">เวลาเริ่มต้น:</label>
-                            <input type="time" id="timeFrom" name="timeFrom" required>
+                            <label for="timeFrom">Time From:</label>
+                            <select id="timeFrom" name="timeFrom" required>
+                                <option value="" disabled selected>HH:MM</option>
+                                <!-- Time options -->
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                                <option value="18:30">18:30</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                            </select>
                         </div>
                         <div>
-                            <label for="timeTo">เวลาสิ้นสุด:</label>
-                            <input type="time" id="timeTo" name="timeTo" required>
+                            <label for="timeTo">Time To:</label>
+                            <select id="timeTo" name="timeTo" required>
+                                <option value="" disabled selected>HH:MM</option>
+                                <!-- Time options -->
+                                <option value="07:29">07:30</option>
+                                <option value="07:59">08:00</option>
+                                <option value="08:29">08:30</option>
+                                <option value="08:59">09:00</option>
+                                <option value="09:29">09:30</option>
+                                <option value="09:59">10:00</option>
+                                <option value="10:29">10:30</option>
+                                <option value="10:59">11:00</option>
+                                <option value="11:29">11:30</option>
+                                <option value="11:59">12:00</option>
+                                <option value="12:29">12:30</option>
+                                <option value="12:59">13:00</option>
+                                <option value="13:29">13:30</option>
+                                <option value="13:59">14:00</option>
+                                <option value="14:29">14:30</option>
+                                <option value="14:59">15:00</option>
+                                <option value="15:29">15:30</option>
+                                <option value="15:59">16:00</option>
+                                <option value="16:29">16:30</option>
+                                <option value="16:59">17:00</option>
+                                <option value="17:29">17:30</option>
+                                <option value="17:59">18:00</option>
+                                <option value="18:29">18:30</option>
+                                <option value="18:59">19:00</option>
+                                <option value="18:29">19:30</option>
+                                <option value="19:59">20:00</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="forWork">หัวข้อการประชุม:</label>
-                        <textarea id="forWork" name="forWork" required></textarea>
+                        <label for="meetingTopic">Meeting Topic:</label>
+                        <textarea id="meetingTopic" name="meetingTopic" required></textarea>
                     </div>
 
-                    <button type="submit">ส่งคำขอจอง</button>
+                    <button type="submit">Submit Booking</button>
                 </form>
+                <a href="calendar2.html" class="calendar-btn" target="_blank">View Calendar</a>
+                <a href="login.html" class="translator-btn" target="_blank">For Translators Only</a>
             </div>
         </section>
 
-        <!-- ส่วนปฏิทินรายวัน -->
+        <!-- View Calendar by Day Section -->
         <section id="calendarDay" class="tab-content">
-            <h2>ปฏิทินรายวัน</h2>
+            <h2>View Calendar by Day</h2>
             <div id="calendarContainer">
-                <!-- เนื้อหาของปฏิทินจะโหลดที่นี่ -->
+                <!-- Calendar content will be loaded here -->
             </div>
         </section>
 
-        <!-- ส่วนปฏิทินรายเดือน -->
+        <!-- View Full Month Section -->
         <section id="calendarMonth" class="tab-content">
-            <h2>ปฏิทินรายเดือน</h2>
-            <p>ส่วนนี้จะแสดงปฏิทินทั้งเดือน</p>
+            <h2>View Full Month</h2>
+            <p>This section will display the full month calendar.</p>
         </section>
 
-        <!-- ส่วนสำหรับ HR & ล่าม -->
+        <!-- For HR & Translators Section -->
         <section id="hrTranslator" class="tab-content">
-            <h2>สำหรับ HR & ล่าม</h2>
-            <p>ส่วนนี้สำหรับ HR และล่ามเท่านั้น</p>
+            <h2>For HR & Translators Only</h2>
+            <p>This section is for HR and translators only.</p>
         </section>
     </main>
 
-    <!-- โมดอลสำหรับแสดงข้อความ -->
+    <!-- Modal for Messages -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <p id="modalMessage"></p>
-            <button class="close-btn" onclick="closeModal()">ปิด</button>
+            <button class="close-btn" onclick="closeModal()">Close</button>
         </div>
     </div>
 
-    <!-- โมดอลสำหรับแสดงสปินเนอร์โหลด -->
+    <!-- Spinner Modal -->
     <div id="spinnerModal" class="spinner-modal">
         <div class="spinner"></div>
     </div>
 
-    <!-- สคริปต์ JavaScript -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
