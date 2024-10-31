@@ -76,7 +76,7 @@ window.onclick = function(event) {
     });
 }
 
-/* --------------------- Calendar Script --------------------- */
+/* /* --------------------- Calendar Script --------------------- */
 
 // ปฏิทิน
 const calendarDays = document.getElementById('calendarDays');
@@ -93,10 +93,12 @@ const modalText = document.getElementById("modalText");
 const eventTable = document.getElementById("eventTable");
 
 const timeSlots = [
-    '0700_0730', '0730_0800', '0800_0830', '0830_0900', '0900_0930', '0930_1000', '1000_1030', '1030_1100', 
-    '1100_1130', '1130_1200', '1200_1230', '1230_1300', '1300_1330', '1330_1400', 
-    '1400_1430', '1430_1500', '1500_1530', '1530_1600', '1600_1630', '1630_1700', 
-    '1700_1730', '1730_1800', '1800_1830', '1830_1900', '1900_1930', '1930_2000'
+    '0700_0730', '0730_0800', '0800_0830', '0830_0900', '0900_0930', '0930_1000',
+    '1000_1030', '1030_1100', '1100_1130', '1130_1200',
+    '1200_1230', '1230_1300', '1300_1330', '1330_1400',
+    '1400_1430', '1430_1500', '1500_1530', '1530_1600',
+    '1600_1630', '1630_1700', '1700_1730', '1730_1800',
+    '1800_1830', '1830_1900', '1900_1930', '1930_2000'
 ];
 
 const dateToday = new Date();
@@ -121,12 +123,14 @@ function renderCalendar(month, year) {
     const todayMonth = today.getMonth();
     const todayYear = today.getFullYear();
 
+    // เพิ่มช่องว่างสำหรับวันก่อนหน้าเดือน
     for (let i = 0; i < firstDay; i++) {
         const emptyCell = document.createElement('div');
         emptyCell.classList.add('calendar-day');
         calendarDays.appendChild(emptyCell);
     }
 
+    // เพิ่มช่องวันที่
     for (let day = 1; day <= daysInMonth; day++) {
         const dayCell = document.createElement('div');
         dayCell.classList.add('calendar-day');
@@ -161,13 +165,17 @@ function renderCalendar(month, year) {
 }
 
 function loadEventsForDay(year, month, day) {
-    spinner.style.display = 'block';
+    const calendarSpinner = document.getElementById('calendarSpinner');
+    calendarSpinner.classList.add('active'); // แสดง Spinner
+
     const requestUrl = `https://script.google.com/macros/s/AKfycbwzFXSq1cWuTMrEPzzKSsztUa2Ql6rRPc7zGunqTINMObAOxyOFUjn9YlGLg1HmUOao/exec?page=calendar&date=${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`;
 
     fetch(requestUrl)
         .then(response => response.json())
         .then(events => {
-            spinner.style.display = 'none';
+            calendarSpinner.classList.remove('active'); // ซ่อน Spinner
+
+            // ล้างข้อมูลเดิมในตาราง
             timeSlots.forEach(time => {
                 document.getElementById(`somSan_${time}`).textContent = '';
                 document.getElementById(`gookSan_${time}`).textContent = '';
@@ -199,19 +207,20 @@ function loadEventsForDay(year, month, day) {
                             }
                         }
 
-                        // Increment timeFromSlot by 30 minutes
+                        // เพิ่มเวลาขึ้น 30 นาที
                         timeFromSlot = incrementTimeSlotBy30Minutes(timeFromSlot);
                     }
                 });
                 modalText.textContent = `Details for ${months[month - 1]} ${day}, ${year}`;
             }
 
-            calendarModal.style.display = "flex";
+            calendarModal.style.display = "flex"; // แสดงโมดอล
         })
         .catch(error => {
-            spinner.style.display = 'none';
+            calendarSpinner.classList.remove('active'); // ซ่อน Spinner
             modalText.textContent = "An error occurred while fetching data.";
-            calendarModal.style.display = "flex";
+            eventTable.style.display = "none"; // ซ่อนตารางหากเกิดข้อผิดพลาด
+            calendarModal.style.display = "flex"; // แสดงโมดอลพร้อมข้อความผิดพลาด
             console.error(error);
         });
 }
