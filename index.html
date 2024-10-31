@@ -159,26 +159,26 @@
             <!-- Loading spinner element -->
             <div class="spinner" id="calendarSpinner"></div>
 
-            <!-- The Modal สำหรับปฏิทิน -->
-            <div id="calendarModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" id="calendarModalClose">&times;</span>
-                    <span class="refresh" id="calendarRefresh">&#x21bb;</span>
-                    <h3 id="modalText">Details</h3>
-                    <table id="eventTable">
-                        <thead>
-                            <tr>
-                                <th>TIME</th>
-                                <th>SOM SAN</th>
-                                <th>GOOK SAN</th>
-                                <th>POOKY SAN</th>
-                                <th>L SAN</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- แถวเวลาจะถูกสร้างขึ้นโดย JavaScript -->
-                            <tr>
-                <td class="time-slot bold-text">07:00 - 07:30</td>
+<!-- The Modal สำหรับปฏิทิน -->
+<div id="calendarModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="calendarModalClose">&times;</span>
+        <span class="refresh" id="calendarRefresh">&#x21bb;</span> <!-- ปุ่มรีเฟรช -->
+        <h3 id="modalText">Details</h3>
+        <table id="eventTable">
+            <thead>
+                <tr>
+                    <th>TIME</th>
+                    <th>SOM SAN</th>
+                    <th>GOOK SAN</th>
+                    <th>POOKY SAN</th>
+                    <th>L SAN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- แถวเวลาจะถูกสร้างขึ้นโดย JavaScript -->
+                	<tr>
+                	<td class="time-slot bold-text">07:00 - 07:30</td>
       			<td id="somSan_0700_0730" class="time-slot"></td>
       			<td id="gookSan_0700_0730" class="time-slot"></td>
       			<td id="pookySan_0700_0730" class="time-slot"></td>
@@ -358,12 +358,12 @@
       			<td id="gookSan_1930_2000" class="time-slot"></td>
       			<td id="pookySan_1930_2000" class="time-slot"></td>
       			<td id="lSan_1930_2000" class="time-slot"></td>
-    			</tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                </tr>
+            </tbody>
+        </table>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
     </section>
 
     <!-- ส่วนของ Translator Only -->
