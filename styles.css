@@ -180,22 +180,36 @@ button[type="submit"]:hover,
 }
 
 /* สไตล์หัวข้อของตาราง */
+#calendarModal .modal-content table {
+    width: 100%;
+    border-collapse: collapse; /* รวมเส้นขอบของตารางให้เป็นเส้นเดียว */
+    table-layout: fixed; /* จัดวางคอลัมน์ให้คงที่ */
+}
+
 #calendarModal .modal-content th,
 #calendarModal .modal-content td {
-    border: 1px solid #888; /* กำหนดเส้นขอบของเซลล์ */
-    padding: 10px; /* กำหนดระยะห่างภายในเซลล์ */
+    border: 1px solid #555; /* กำหนดเส้นขอบของเซลล์เป็นสีเทาเข้ม */
+    padding: 15px; /* เพิ่มระยะห่างภายในเซลล์ */
     text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
     vertical-align: middle; /* จัดข้อความให้อยู่ตรงกลางแนวตั้ง */
+    font-size: 16px; /* ปรับขนาดฟอนต์ให้เหมาะสม */
+    color: #333; /* สีตัวอักษร */
+    background-color: #fff; /* สีพื้นหลังของเซลล์ */
+    word-wrap: break-word; /* ทำให้ข้อความขึ้นบรรทัดใหม่ถ้ามีความยาวเกิน */
 }
 
 #calendarModal .modal-content th {
-    background-color: #2196F3;
-    color: white;
+    background-color: #f5f5f5; /* สีพื้นหลังของหัวตาราง */
     font-weight: bold;
 }
 
 #calendarModal .modal-content td.has-event {
-    background-color: #d1ffd1; /* สีเขียวอ่อนสำหรับเซลล์ที่มีเหตุการณ์ */
+    background-color: #f0f8ff; /* สีฟ้าอ่อนสำหรับเซลล์ที่มีเหตุการณ์ */
+}
+
+/* สไตล์แถวที่ถูกเลื่อนผ่าน */
+#calendarModal .modal-content tr:hover {
+    background-color: #f9f9f9; /* สีพื้นหลังเมื่อเลื่อนเมาส์ผ่านแถว */
 }
 
 /* ปรับขนาดและจัดวางปุ่มปิด */
@@ -221,14 +235,14 @@ button[type="submit"]:hover,
     position: absolute;
     top: 10px;
     left: 15px;
-    color: #888;
+    color: #555;
     font-size: 24px;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 #calendarModal .modal-content span.refresh:hover {
-    color: #555;
+    color: #333;
 }
 
 /* ปุ่มปิดภายในโมดอล */
