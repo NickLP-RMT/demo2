@@ -9,6 +9,9 @@ body {
     font-family: 'Kanit', sans-serif;
     background: linear-gradient(to right, #e0eafc, #cfdef3);
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* สไตล์แถบเมนูการนำทาง */
@@ -54,22 +57,41 @@ body {
 .section {
     display: none;
     padding: 40px 20px;
+    flex: 1; /* ทำให้ส่วนอื่นๆ ขยายเต็มที่ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .section.active {
-    display: block;
+    display: flex;
 }
 
+/* สไตล์ฟอร์ม */
 .container {
     max-width: 800px;
-    margin: 20px auto;
+    width: 100%;
     background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* เพิ่ม Flexbox เพื่อจัดตำแหน่งให้พอดีกับหน้าจอ */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.container h2 {
+.form-container h2 {
     margin-bottom: 30px;
     color: #333;
     text-align: center;
@@ -78,19 +100,9 @@ body {
     justify-content: center;
 }
 
-.container h2 i {
+.form-container h2 i {
     margin-right: 10px;
     color: #2980b9;
-}
-
-/* สไตล์ฟอร์ม */
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -374,6 +386,7 @@ section p {
 
     .time-group {
         flex-direction: column;
+        gap: 10px;
     }
 
     .time-group > div {
