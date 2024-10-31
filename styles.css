@@ -179,7 +179,27 @@ button[type="submit"]:hover,
     overflow: auto; /* เพิ่มการเลื่อนถ้าข้อมูลเกินขนาด */
 }
 
-.modal-content span.close {
+/* สไตล์หัวข้อของตาราง */
+#calendarModal .modal-content th,
+#calendarModal .modal-content td {
+    border: 1px solid #888; /* กำหนดเส้นขอบของเซลล์ */
+    padding: 10px; /* กำหนดระยะห่างภายในเซลล์ */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    vertical-align: middle; /* จัดข้อความให้อยู่ตรงกลางแนวตั้ง */
+}
+
+#calendarModal .modal-content th {
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+}
+
+#calendarModal .modal-content td.has-event {
+    background-color: #d1ffd1; /* สีเขียวอ่อนสำหรับเซลล์ที่มีเหตุการณ์ */
+}
+
+/* ปรับขนาดและจัดวางปุ่มปิด */
+#calendarModal .modal-content span.close {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -189,14 +209,30 @@ button[type="submit"]:hover,
     cursor: pointer;
 }
 
-.modal-content span.close:hover,
-.modal-content span.close:focus {
+#calendarModal .modal-content span.close:hover,
+#calendarModal .modal-content span.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-.close-btn {
+/* ปุ่มรีเฟรช */
+#calendarModal .modal-content span.refresh {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: #888;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#calendarModal .modal-content span.refresh:hover {
+    color: #555;
+}
+
+/* ปุ่มปิดภายในโมดอล */
+#calendarModal .modal-content .close-btn {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -206,8 +242,14 @@ button[type="submit"]:hover,
     cursor: pointer;
 }
 
-.close-btn:hover {
+#calendarModal .modal-content .close-btn:hover {
     background-color: #45a049;
+}
+
+/* สไตล์สำหรับหัวข้อรายละเอียด */
+#calendarModal .modal-content h3 {
+    margin-bottom: 20px;
+    color: #333;
 }
 
 /* สไตล์สปินเนอร์ */
