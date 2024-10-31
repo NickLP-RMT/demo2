@@ -11,7 +11,7 @@ body {
     color: #333;
 }
 
-/* สไตล์สำหรับ Navbar */
+/* สไตล์แถบเมนูการนำทาง */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -20,25 +20,23 @@ body {
     padding: 10px 20px;
 }
 
-.navbar .logo {
+.navbar-logo a {
     color: #fff;
     font-size: 24px;
-    font-weight: 600;
     text-decoration: none;
+    font-weight: 600;
 }
 
-.navbar .nav-links {
+.navbar-menu {
     list-style: none;
     display: flex;
-    margin: 0;
-    padding: 0;
 }
 
-.navbar .nav-links li {
+.navbar-menu li {
     margin-left: 20px;
 }
 
-.navbar .nav-links a {
+.navbar-menu a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -47,16 +45,12 @@ body {
     transition: background-color 0.3s;
 }
 
-.navbar .nav-links a:hover,
-.navbar .nav-links a.active {
+.navbar-menu a:hover,
+.navbar-menu a.active {
     background-color: #1976d2;
 }
 
 /* สไตล์เนื้อหาหลัก */
-main {
-    padding: 40px 20px;
-}
-
 .section {
     display: none;
     padding: 40px 20px;
@@ -64,6 +58,29 @@ main {
 
 .section.active {
     display: block;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h2 i {
+    margin-right: 10px;
+    color: #2980b9;
 }
 
 /* สไตล์ฟอร์ม */
@@ -74,12 +91,6 @@ main {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-container h2 {
-    margin-bottom: 30px;
-    color: #333;
-    text-align: center;
 }
 
 .form-group {
@@ -111,10 +122,11 @@ main {
 .time-group {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .time-group > div {
-    width: 48%;
+    flex: 1;
 }
 
 button[type="submit"],
@@ -136,30 +148,64 @@ button[type="submit"]:hover,
     background-color: #1976d2;
 }
 
+/* สไตล์ปุ่มทั่วไป */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #27ae60;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #219150;
+}
+
 /* สไตล์โมดอล */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(44, 62, 80, 0.9);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    background-color: white;
-    margin: auto;
+    background-color: #ecf0f1;
     padding: 30px;
     border: 1px solid #888;
     width: 80%;
     max-width: 500px;
     border-radius: 10px;
     text-align: center;
+    position: relative;
+}
+
+.modal-content span.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content span.close:hover,
+.modal-content span.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .close-btn {
@@ -177,16 +223,21 @@ button[type="submit"]:hover,
 }
 
 /* สไตล์สปินเนอร์ */
+.spinner-modal,
+.spinner {
+    display: none;
+}
+
 .spinner-modal {
     display: none;
     position: fixed;
-    z-index: 2;
+    z-index: 99;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(44, 62, 80, 0.5);
     justify-content: center;
     align-items: center;
 }
@@ -205,6 +256,96 @@ button[type="submit"]:hover,
     100% { transform: rotate(360deg); }
 }
 
+/* สไตล์ปฏิทิน */
+.calendar {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.calendar-header button {
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+#todayButton {
+    background-color: #ffeb3b;
+    color: black;
+}
+
+#todayButton:hover {
+    background-color: #fdd835;
+}
+
+.time-slot {
+    font-size: 11px; /* ลดขนาดฟอนต์ที่นี่ */
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+}
+
+.calendar-day, .day-header {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 4px;
+}
+
+.calendar-day:hover {
+    background-color: #e3f2fd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.today {
+    background-color: #ffeb3b;
+    color: #000;
+    font-weight: bold;
+}
+
+.day-header {
+    background-color: #ddd;
+    font-weight: bold;
+    cursor: default;
+}
+
+.has-event::after {
+    content: '\1F4D6'; /* ไอคอนหนังสือ */
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px; /* ขนาดของไอคอนหนังสือ */
+    color: #4CAF50; /* สีเขียว */
+}
+
 /* สไตล์ส่วนอื่น ๆ */
 section h2 {
     font-size: 28px;
@@ -221,12 +362,12 @@ section p {
 
 /* การตอบสนองต่อหน้าจอขนาดเล็ก */
 @media (max-width: 768px) {
-    .navbar .nav-links {
+    .navbar-menu {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .navbar .nav-links li {
+    .navbar-menu li {
         margin-left: 0;
         margin-top: 10px;
     }
@@ -238,5 +379,26 @@ section p {
     .time-group > div {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    .calendar-days {
+        grid-template-columns: repeat(7, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar .nav-links li {
+        margin-left: 0;
+        margin-top: 10px;
     }
 }
