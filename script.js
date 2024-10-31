@@ -274,10 +274,14 @@ calendarModalClose.onclick = function() {
     calendarModal.style.display = "none";
 }
 
+// ปิดโมดอลเมื่อคลิกนอกพื้นที่
 window.onclick = function(event) {
-    if (event.target == calendarModal) {
-        calendarModal.style.display = "none";
-    }
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
 }
 
 renderCalendar(currentMonth, currentYear);
