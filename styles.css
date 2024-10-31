@@ -165,15 +165,18 @@ button[type="submit"]:hover,
     align-items: center;
 }
 
-.modal-content {
+#calendarModal .modal-content {
     background-color: #ecf0f1;
     padding: 20px 30px;
     border: 1px solid #888;
-    width: 90%;
-    max-width: 500px;
+    width: 600px; /* กำหนดความกว้างที่ต้องการ */
+    height: 500px; /* กำหนดความสูงที่ต้องการ */
+    max-width: 90%; /* ป้องกันไม่ให้เกินขนาดหน้าจอ */
+    max-height: 90%; /* ป้องกันไม่ให้เกินขนาดหน้าจอ */
     border-radius: 10px;
     text-align: center;
     position: relative;
+    overflow: auto; /* เพิ่มการเลื่อนถ้าข้อมูลเกินขนาด */
 }
 
 .modal-content span.close {
@@ -208,23 +211,17 @@ button[type="submit"]:hover,
 }
 
 /* สไตล์สปินเนอร์ */
-.spinner-modal,
-.spinner {
-    display: none;
+#calendarSpinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none; /* ซ่อน Spinner เริ่มต้น */
 }
 
-.spinner-modal {
-    display: none;
-    position: fixed;
-    z-index: 99;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(44, 62, 80, 0.5);
-    justify-content: center;
-    align-items: center;
+#calendarSpinner.active {
+    display: block; /* แสดง Spinner เมื่อมีการโหลดข้อมูล */
 }
 
 .spinner {
@@ -380,6 +377,18 @@ section p {
     .day-header {
         font-size: 14px;
     }
+
+    #calendarModal .modal-content {
+        width: 80%; /* ลดความกว้าง */
+        height: 70%; /* ลดความสูง */
+    }
+
+    /* ปรับขนาด spinner สำหรับหน้าจอขนาดกลาง */
+    #calendarSpinner .spinner {
+        width: 60px;
+        height: 60px;
+        border-width: 8px;
+    }
 }
 
 /* การตอบสนองต่อหน้าจอขนาดเล็ก */
@@ -395,5 +404,18 @@ section p {
 
     .day-header {
         font-size: 12px;
+    }
+
+    #calendarModal .modal-content {
+        width: 95%; /* เพิ่มความกว้างให้พอดีกับหน้าจอ */
+        height: 80%; /* เพิ่มความสูงให้พอดีกับหน้าจอมือถือ */
+        padding: 15px 20px; /* ลด padding เพื่อให้มีพื้นที่ใช้สอยมากขึ้น */
+    }
+
+    /* ปรับขนาด spinner สำหรับหน้าจอขนาดเล็ก */
+    #calendarSpinner .spinner {
+        width: 50px;
+        height: 50px;
+        border-width: 6px;
     }
 }
