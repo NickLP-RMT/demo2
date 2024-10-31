@@ -170,7 +170,7 @@ button[type="submit"]:hover,
     padding: 20px 30px;
     border: 1px solid #888;
     width: 900px; /* กำหนดความกว้างที่ต้องการ */
-    height: 600px; /* กำหนดความสูงที่ต้องการ */
+    height: 700px; /* กำหนดความสูงที่ต้องการ */
     max-width: 90%; /* ป้องกันไม่ให้เกินขนาดหน้าจอ */
     max-height: 90%; /* ป้องกันไม่ให้เกินขนาดหน้าจอ */
     border-radius: 10px;
