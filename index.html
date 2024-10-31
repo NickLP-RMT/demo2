@@ -56,7 +56,6 @@
                         <select id="timeFrom" name="timeFrom" required>
                             <!-- ตัวเลือกเวลา -->
                             <option value="" disabled selected>HH:MM</option>
-                            <!-- เพิ่มตัวเลือกเวลาตามต้องการ -->
                             <option value="07:00">07:00</option>
                             <option value="07:30">07:30</option>
                             <option value="08:00">08:00</option>
@@ -91,8 +90,7 @@
                         <select id="timeTo" name="timeTo" required>
                             <!-- ตัวเลือกเวลา -->
                             <option value="" disabled selected>HH:MM</option>
-                            <!-- เพิ่มตัวเลือกเวลาตามต้องการ -->
-                            <option value="07:29">07:30</option>
+         		    <option value="07:29">07:30</option>
                             <option value="07:59">08:00</option>
                             <option value="08:29">08:30</option>
                             <option value="08:59">09:00</option>
@@ -135,9 +133,235 @@
     <!-- ส่วนของปฏิทิน -->
     <section id="calendar" class="section">
         <div class="container">
-            <h2><i class="fas fa-calendar"></i> View Calendar</h2>
-            <!-- เนื้อหาของปฏิทิน -->
-            <a href="calendar2.html" class="btn">Open Calendar</a>
+            <div class="calendar">
+                <div class="calendar-header">
+                    <button id="prevMonth">Previous</button>
+                    <h2 id="monthYear"></h2>
+                    <div>
+                        <button id="todayButton">Today</button> <!-- ปุ่ม Today -->
+                        <button id="nextMonth">Next</button>
+                    </div>
+                </div>
+                <div class="calendar-days">
+                    <div class="day-header">SUNDAY</div>
+                    <div class="day-header">MONDAY</div>
+                    <div class="day-header">TUESDAY</div>
+                    <div class="day-header">WEDNESDAY</div>
+                    <div class="day-header">THURSDAY</div>
+                    <div class="day-header">FRIDAY</div>
+                    <div class="day-header">SATURDAY</div>
+                </div>
+                <div class="calendar-days" id="calendarDays">
+                    <!-- Calendar days will be generated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Loading spinner element -->
+            <div class="spinner" id="calendarSpinner"></div>
+
+            <!-- The Modal สำหรับปฏิทิน -->
+            <div id="calendarModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="calendarModalClose">&times;</span>
+                    <span class="refresh" id="calendarRefresh">&#x21bb;</span>
+                    <h3 id="modalText">Details</h3>
+                    <table id="eventTable">
+                        <thead>
+                            <tr>
+                                <th>TIME</th>
+                                <th>SOM SAN</th>
+                                <th>GOOK SAN</th>
+                                <th>POOKY SAN</th>
+                                <th>L SAN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+			<tr>
+      			<td class="time-slot bold-text">07:00 - 07:30</td>
+      			<td id="somSan_0700_0730" class="time-slot"></td>
+      			<td id="gookSan_0700_0730" class="time-slot"></td>
+      			<td id="pookySan_0700_0730" class="time-slot"></td>
+      			<td id="lSan_0700_0730" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">07:30 - 08:00</td>
+      			<td id="somSan_0730_0800" class="time-slot"></td>
+      			<td id="gookSan_0730_0800" class="time-slot"></td>
+      			<td id="pookySan_0730_0800" class="time-slot"></td>
+      			<td id="lSan_0730_0800" class="time-slot"></td>
+    			</tr>
+      			<tr>
+      			<td class="time-slot bold-text">08:00 - 08:30</td>
+      			<td id="somSan_0800_0830" class="time-slot"></td>
+      			<td id="gookSan_0800_0830" class="time-slot"></td>
+      			<td id="pookySan_0800_0830" class="time-slot"></td>
+      			<td id="lSan_0800_0830" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">08:30 - 09:00</td>
+      			<td id="somSan_0830_0900" class="time-slot"></td>
+      			<td id="gookSan_0830_0900" class="time-slot"></td>
+      			<td id="pookySan_0830_0900" class="time-slot"></td>
+      			<td id="lSan_0830_0900" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">09:00 - 09:30</td>
+      			<td id="somSan_0900_0930" class="time-slot"></td>
+      			<td id="gookSan_0900_0930" class="time-slot"></td>
+      			<td id="pookySan_0900_0930" class="time-slot"></td>
+      			<td id="lSan_0900_0930" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">09:30 - 10:00</td>
+      			<td id="somSan_0930_1000" class="time-slot"></td>
+      			<td id="gookSan_0930_1000" class="time-slot"></td>
+      			<td id="pookySan_0930_1000" class="time-slot"></td>
+      			<td id="lSan_0930_1000" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">10:00 - 10:30</td>
+      			<td id="somSan_1000_1030" class="time-slot"></td>
+      			<td id="gookSan_1000_1030" class="time-slot"></td>
+      			<td id="pookySan_1000_1030" class="time-slot"></td>
+      			<td id="lSan_1000_1030" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">10:30 - 11:00</td>
+      			<td id="somSan_1030_1100" class="time-slot"></td>
+      			<td id="gookSan_1030_1100" class="time-slot"></td>
+      			<td id="pookySan_1030_1100" class="time-slot"></td>
+      			<td id="lSan_1030_1100" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">11:00 - 11:30</td>
+      			<td id="somSan_1100_1130" class="time-slot"></td>
+      			<td id="gookSan_1100_1130" class="time-slot"></td>
+      			<td id="pookySan_1100_1130" class="time-slot"></td>
+      			<td id="lSan_1100_1130" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">11:30 - 12:00</td>
+      			<td id="somSan_1130_1200" class="time-slot"></td>
+      			<td id="gookSan_1130_1200" class="time-slot"></td>
+      			<td id="pookySan_1130_1200" class="time-slot"></td>
+      			<td id="lSan_1130_1200" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">12:00 - 12:30</td>
+      			<td id="somSan_1200_1230" class="time-slot"></td>
+      			<td id="gookSan_1200_1230" class="time-slot"></td>
+      			<td id="pookySan_1200_1230" class="time-slot"></td>
+      			<td id="lSan_1200_1230" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">12:30 - 13:00</td>
+      			<td id="somSan_1230_1300" class="time-slot"></td>
+      			<td id="gookSan_1230_1300" class="time-slot"></td>
+      			<td id="pookySan_1230_1300" class="time-slot"></td>
+      			<td id="lSan_1230_1300" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">13:00 - 13:30</td>
+      			<td id="somSan_1300_1330" class="time-slot"></td>
+      			<td id="gookSan_1300_1330" class="time-slot"></td>
+      			<td id="pookySan_1300_1330" class="time-slot"></td>
+      			<td id="lSan_1300_1330" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">13:30 - 14:00</td>
+      			<td id="somSan_1330_1400" class="time-slot"></td>
+      			<td id="gookSan_1330_1400" class="time-slot"></td>
+      			<td id="pookySan_1330_1400" class="time-slot"></td>
+      			<td id="lSan_1330_1400" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">14:00 - 14:30</td>
+      			<td id="somSan_1400_1430" class="time-slot"></td>
+      			<td id="gookSan_1400_1430" class="time-slot"></td>
+      			<td id="pookySan_1400_1430" class="time-slot"></td>
+      			<td id="lSan_1400_1430" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">14:30 - 15:00</td>
+      			<td id="somSan_1430_1500" class="time-slot"></td>
+      			<td id="gookSan_1430_1500" class="time-slot"></td>
+      			<td id="pookySan_1430_1500" class="time-slot"></td>
+      			<td id="lSan_1430_1500" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">15:00 - 15:30</td>
+      			<td id="somSan_1500_1530" class="time-slot"></td>
+      			<td id="gookSan_1500_1530" class="time-slot"></td>
+      			<td id="pookySan_1500_1530" class="time-slot"></td>
+      			<td id="lSan_1500_1530" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">15:30 - 16:00</td>
+      			<td id="somSan_1530_1600" class="time-slot"></td>
+      			<td id="gookSan_1530_1600" class="time-slot"></td>
+      			<td id="pookySan_1530_1600" class="time-slot"></td>
+      			<td id="lSan_1530_1600" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">16:00 - 16:30</td>
+      			<td id="somSan_1600_1630" class="time-slot"></td>
+      			<td id="gookSan_1600_1630" class="time-slot"></td>
+      			<td id="pookySan_1600_1630" class="time-slot"></td>
+      			<td id="lSan_1600_1630" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">16:30 - 17:00</td>
+      			<td id="somSan_1630_1700" class="time-slot"></td>
+      			<td id="gookSan_1630_1700" class="time-slot"></td>
+      			<td id="pookySan_1630_1700" class="time-slot"></td>
+      			<td id="lSan_1630_1700" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">17:00 - 17:30</td>
+      			<td id="somSan_1700_1730" class="time-slot"></td>
+      			<td id="gookSan_1700_1730" class="time-slot"></td>
+      			<td id="pookySan_1700_1730" class="time-slot"></td>
+      			<td id="lSan_1700_1730" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">17:30 - 18:00</td>
+      			<td id="somSan_1730_1800" class="time-slot"></td>
+      			<td id="gookSan_1730_1800" class="time-slot"></td>
+      			<td id="pookySan_1730_1800" class="time-slot"></td>
+      			<td id="lSan_1730_1800" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">18:00 - 18:30</td>
+      			<td id="somSan_1800_1830" class="time-slot"></td>
+      			<td id="gookSan_1800_1830" class="time-slot"></td>
+      			<td id="pookySan_1800_1830" class="time-slot"></td>
+      			<td id="lSan_1800_1830" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">18:30 - 19:00</td>
+      			<td id="somSan_1830_1900" class="time-slot"></td>
+      			<td id="gookSan_1830_1900" class="time-slot"></td>
+      			<td id="pookySan_1830_1900" class="time-slot"></td>
+      			<td id="lSan_1830_1900" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">19:00 - 19:30</td>
+      			<td id="somSan_1900_1930" class="time-slot"></td>
+      			<td id="gookSan_1900_1930" class="time-slot"></td>
+      			<td id="pookySan_1900_1930" class="time-slot"></td>
+      			<td id="lSan_1900_1930" class="time-slot"></td>
+    			</tr>
+    			<tr>
+      			<td class="time-slot bold-text">19:30 - 20:00</td>
+      			<td id="somSan_1930_2000" class="time-slot"></td>
+      			<td id="gookSan_1930_2000" class="time-slot"></td>
+      			<td id="pookySan_1930_2000" class="time-slot"></td>
+      			<td id="lSan_1930_2000" class="time-slot"></td>
+    			</tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -150,7 +374,7 @@
         </div>
     </section>
 
-    <!-- Modal แสดงผลลัพธ์ -->
+    <!-- Modal แสดงผลลัพธ์การจอง -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span id="modalMessage"></span>
