@@ -90,7 +90,7 @@
                         <select id="timeTo" name="timeTo" required>
                             <!-- ตัวเลือกเวลา -->
                             <option value="" disabled selected>HH:MM</option>
-                            <option value="07:29">07:30</option>
+			    <option value="07:29">07:30</option>
                             <option value="07:59">08:00</option>
                             <option value="08:29">08:30</option>
                             <option value="08:59">09:00</option>
@@ -142,7 +142,7 @@
                         <button id="nextMonth">Next</button>
                     </div>
                 </div>
-                <div class="calendar-days">
+                <div class="calendar-days day-headers">
                     <div class="day-header">SUNDAY</div>
                     <div class="day-header">MONDAY</div>
                     <div class="day-header">TUESDAY</div>
@@ -152,7 +152,7 @@
                     <div class="day-header">SATURDAY</div>
                 </div>
                 <div class="calendar-days" id="calendarDays">
-                    <!-- Calendar days will be generated here by JavaScript -->
+                    <!-- Calendar days จะถูกสร้างขึ้นโดย JavaScript -->
                 </div>
             </div>
 
@@ -176,7 +176,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                <tr>
+                            <!-- แถวเวลาจะถูกสร้างขึ้นโดย JavaScript -->
+                            <tr>
                 <td class="time-slot bold-text">07:00 - 07:30</td>
       			<td id="somSan_0700_0730" class="time-slot"></td>
       			<td id="gookSan_0700_0730" class="time-slot"></td>
