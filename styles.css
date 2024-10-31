@@ -9,6 +9,7 @@ body {
     font-family: 'Kanit', sans-serif;
     background: linear-gradient(to right, #e0eafc, #cfdef3);
     color: #333;
+    overflow-x: hidden; /* ป้องกันการเกิด horizontal scrollbar */
 }
 
 /* สไตล์แถบเมนูการนำทาง */
@@ -53,48 +54,32 @@ body {
 /* สไตล์เนื้อหาหลัก */
 .section {
     display: none;
-    padding: 40px 20px;
+    padding: 20px;
 }
 
 .section.active {
     display: block;
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.container h2 {
-    margin-bottom: 30px;
-    color: #333;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container h2 i {
-    margin-right: 10px;
-    color: #2980b9;
-}
-
 /* สไตล์ฟอร์ม */
 .form-container {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 500px; /* ลดขนาดสูงสุดของฟอร์ม */
+    width: 90%; /* กำหนดความกว้างเป็น 90% ของหน้าจอ */
+    margin: 0 auto; /* จัดกึ่งกลาง */
     background-color: #fff;
-    padding: 30px;
+    padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
@@ -108,7 +93,7 @@ body {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
@@ -116,7 +101,7 @@ body {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 80px;
 }
 
 .time-group {
@@ -132,7 +117,7 @@ body {
 button[type="submit"],
 .btn-submit {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     background-color: #2196F3;
     border: none;
     border-radius: 5px;
@@ -182,9 +167,9 @@ button[type="submit"]:hover,
 
 .modal-content {
     background-color: #ecf0f1;
-    padding: 30px;
+    padding: 20px 30px;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     border-radius: 10px;
     text-align: center;
@@ -258,7 +243,8 @@ button[type="submit"]:hover,
 
 /* สไตล์ปฏิทิน */
 .calendar {
-    max-width: 900px;
+    max-width: 100%; /* ปรับให้พอดีกับหน้าจอ */
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -273,6 +259,7 @@ button[type="submit"]:hover,
 .calendar-header h2 {
     margin: 0;
     color: #333;
+    font-size: 24px; /* ลดขนาดหัวข้อ */
 }
 
 .calendar-header button {
@@ -295,7 +282,7 @@ button[type="submit"]:hover,
 }
 
 .time-slot {
-    font-size: 11px; /* ลดขนาดฟอนต์ที่นี่ */
+    font-size: 12px; /* ปรับขนาดฟอนต์ให้ใหญ่ขึ้นเล็กน้อย */
 }
 
 .bold-text {
@@ -374,15 +361,42 @@ section p {
 
     .time-group {
         flex-direction: column;
+        gap: 10px;
     }
 
     .time-group > div {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
-    .calendar-days {
-        grid-template-columns: repeat(7, 1fr);
+    .calendar {
+        padding: 10px;
+    }
+
+    .calendar-header h2 {
+        font-size: 20px;
+    }
+
+    .day-header {
+        font-size: 14px;
+    }
+
+    .calendar-day {
+        padding: 8px;
+    }
+
+    .modal-content {
+        width: 95%; /* เพิ่มความกว้างให้พอดีกับหน้าจอ */
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+        border-width: 8px;
     }
 }
 
