@@ -289,13 +289,33 @@ button[type="submit"]:hover,
     font-weight: bold;
 }
 
-.calendar-days {
+/* แถวหัวข้อวัน */
+.calendar-days.day-headers {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 5px;
 }
 
-.calendar-day, .day-header {
+.day-header {
+    font-size: 16px; /* ปรับขนาดฟอนต์ให้เหมาะสม */
+    height: 40px; /* กำหนดความสูงของแถวหัวข้อ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd; /* สีพื้นหลังของแถวหัวข้อ */
+    border-radius: 4px; /* มุมโค้งสำหรับแถวหัวข้อ */
+    border: 1px solid #ddd;
+}
+
+/* แถวของวันที่จอง */
+.calendar-days#calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: 100px; /* กำหนดความสูงของแถวทั้งหมด */
+}
+
+.calendar-day {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 10px;
@@ -304,6 +324,11 @@ button[type="submit"]:hover,
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     border-radius: 4px;
+    overflow: hidden; /* ป้องกันการล้นของเนื้อหา */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* ปรับขนาดฟอนต์ให้เหมาะสม */
 }
 
 .calendar-day:hover {
@@ -315,12 +340,6 @@ button[type="submit"]:hover,
     background-color: #ffeb3b;
     color: #000;
     font-weight: bold;
-}
-
-.day-header {
-    background-color: #ddd;
-    font-weight: bold;
-    cursor: default;
 }
 
 .has-event::after {
@@ -347,30 +366,11 @@ section p {
     text-align: center;
 }
 
-/* การตอบสนองต่อหน้าจอขนาดเล็ก */
+/* การตอบสนองต่อหน้าจอขนาดกลาง */
 @media (max-width: 768px) {
-    .navbar-menu {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar-menu li {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-
-    .time-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .time-group > div {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .calendar {
-        padding: 10px;
+    .calendar-day {
+        height: 80px; /* ปรับลดความสูงสำหรับหน้าจอขนาดกลาง */
+        font-size: 14px; /* ปรับขนาดฟอนต์ */
     }
 
     .calendar-header h2 {
@@ -380,39 +380,20 @@ section p {
     .day-header {
         font-size: 14px;
     }
-
-    .calendar-day {
-        padding: 8px;
-    }
-
-    .modal-content {
-        width: 95%; /* เพิ่มความกว้างให้พอดีกับหน้าจอ */
-    }
-
-    .form-container {
-        padding: 20px;
-    }
-
-    .spinner {
-        width: 60px;
-        height: 60px;
-        border-width: 8px;
-    }
 }
 
+/* การตอบสนองต่อหน้าจอขนาดเล็ก */
 @media (max-width: 576px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+    .calendar-day {
+        height: 60px; /* ปรับลดความสูงสำหรับหน้าจอขนาดเล็ก */
+        font-size: 12px; /* ลดขนาดฟอนต์ */
     }
 
-    .navbar .nav-links {
-        flex-direction: column;
-        width: 100%;
+    .calendar-header h2 {
+        font-size: 18px;
     }
 
-    .navbar .nav-links li {
-        margin-left: 0;
-        margin-top: 10px;
+    .day-header {
+        font-size: 12px;
     }
 }
