@@ -179,188 +179,86 @@ button[type="submit"]:hover,
     overflow: auto; /* เพิ่มการเลื่อนถ้าข้อมูลเกินขนาด */
 }
 
-.modal-content span.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+/* เพิ่มเส้นตารางให้กับตารางในโมดอล */
+#calendarModal #eventTable {
+    width: 100%; /* ให้ตารางใช้ความกว้างเต็มโมดอล */
+    border-collapse: collapse; /* รวมเส้นขอบของตารางและเซลล์ */
+    margin-top: 20px; /* เพิ่มช่องว่างด้านบนตาราง */
 }
 
-.modal-content span.close:hover,
-.modal-content span.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+#calendarModal #eventTable th,
+#calendarModal #eventTable td {
+    border: 1px solid #ccc; /* กำหนดเส้นขอบสีเทาอ่อนให้กับเซลล์ */
+    padding: 12px; /* เพิ่มช่องว่างภายในเซลล์ */
+    text-align: center; /* จัดกึ่งกลางข้อความภายในเซลล์ */
+    vertical-align: middle; /* จัดกึ่งกลางแนวตั้งของข้อความภายในเซลล์ */
 }
 
-.close-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+#calendarModal #eventTable th {
+    background-color: #2196F3; /* เปลี่ยนสีพื้นหลังของหัวตาราง */
+    color: #fff; /* เปลี่ยนสีข้อความในหัวตารางเป็นสีขาว */
+    font-size: 18px; /* ปรับขนาดอักษรหัวตาราง */
 }
 
-.close-btn:hover {
-    background-color: #45a049;
+#calendarModal #eventTable td {
+    font-size: 16px; /* ปรับขนาดอักษรเซลล์ตาราง */
 }
 
-/* สไตล์สปินเนอร์ */
-#calendarSpinner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    display: none; /* ซ่อน Spinner เริ่มต้น */
+/* สไตล์สำหรับเซลล์ที่มีการจอง */
+#calendarModal #eventTable td.has-booking {
+    background-color: #d1ffd1; /* สีพื้นหลังเขียวอ่อนสำหรับเซลล์ที่มีการจอง */
+    font-weight: bold; /* ทำให้ข้อความหนา */
 }
 
-#calendarSpinner.active {
-    display: block; /* แสดง Spinner เมื่อมีการโหลดข้อมูล */
+/* จัดกำหนดความกว้างของคอลัมน์ */
+#calendarModal #eventTable th:nth-child(1),
+#calendarModal #eventTable td:nth-child(1) {
+    width: 20%; /* คอลัมน์ TIME ใช้ความกว้าง 20% */
 }
 
-.spinner {
-    border: 12px solid #f3f3f3;
-    border-top: 12px solid #3498db;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    animation: spin 1.5s linear infinite;
+#calendarModal #eventTable th:nth-child(2),
+#calendarModal #eventTable td:nth-child(2),
+#calendarModal #eventTable th:nth-child(3),
+#calendarModal #eventTable td:nth-child(3),
+#calendarModal #eventTable th:nth-child(4),
+#calendarModal #eventTable td:nth-child(4),
+#calendarModal #eventTable th:nth-child(5),
+#calendarModal #eventTable td:nth-child(5) {
+    width: 20%; /* คอลัมน์ล่ามแต่ละคนใช้ความกว้าง 20% */
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* เพิ่มระยะห่างระหว่างแถว */
+#calendarModal #eventTable tr {
+    height: 50px; /* กำหนดความสูงของแถว */
 }
 
-/* สไตล์ปฏิทิน */
-.calendar {
-    max-width: 100%; /* ปรับให้พอดีกับหน้าจอ */
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+/* จัดการการแสดงผลข้อความ */
+#calendarModal #eventTable th,
+#calendarModal #eventTable td {
+    word-wrap: break-word; /* ทำให้ข้อความหักบรรทัดได้ */
 }
 
-.calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+/* ป้องกันไม่ให้ตารางเกินขนาดของโมดอล */
+#calendarModal .modal-content {
+    overflow: auto; /* ให้สามารถเลื่อนได้ถ้าข้อมูลเกินขนาด */
 }
 
-.calendar-header h2 {
-    margin: 0;
-    color: #333;
-    font-size: 24px; /* ลดขนาดหัวข้อ */
-}
+/* เพิ่มการแสดงผลแบบ Responsive ให้กับตาราง */
+@media (min-width: 1200px) {
+    #calendarModal .modal-content {
+        width: 1100px; /* ความกว้างของโมดอลสำหรับหน้าจอใหญ่ */
+        height: 750px; /* ความสูงของโมดอลสำหรับหน้าจอใหญ่ */
+    }
 
-.calendar-header button {
-    padding: 8px 12px;
-    cursor: pointer;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
+    #calendarModal #eventTable th,
+    #calendarModal #eventTable td {
+        padding: 16px; /* เพิ่ม padding สำหรับหน้าจอใหญ่ */
+        font-size: 18px; /* เพิ่มขนาดอักษรสำหรับหน้าจอใหญ่ */
+    }
 
-#todayButton {
-    background-color: #ffeb3b;
-    color: black;
-}
-
-#todayButton:hover {
-    background-color: #fdd835;
-}
-
-.time-slot {
-    font-size: 12px; /* ปรับขนาดฟอนต์ให้ใหญ่ขึ้นเล็กน้อย */
-}
-
-.bold-text {
-    font-weight: bold;
-}
-
-/* แถวหัวข้อวัน */
-.calendar-days.day-headers {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 5px;
-}
-
-.day-header {
-    font-size: 16px; /* ปรับขนาดฟอนต์ให้เหมาะสม */
-    height: 40px; /* กำหนดความสูงของแถวหัวข้อ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ddd; /* สีพื้นหลังของแถวหัวข้อ */
-    border-radius: 4px; /* มุมโค้งสำหรับแถวหัวข้อ */
-    border: 1px solid #ddd;
-}
-
-/* แถวของวันที่จอง */
-.calendar-days#calendarDays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 5px;
-    grid-auto-rows: 100px; /* กำหนดความสูงของแถวทั้งหมด */
-}
-
-.calendar-day {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 4px;
-    overflow: hidden; /* ป้องกันการล้นของเนื้อหา */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px; /* ปรับขนาดฟอนต์ให้เหมาะสม */
-}
-
-.calendar-day:hover {
-    background-color: #e3f2fd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.today {
-    background-color: #ffeb3b;
-    color: #000;
-    font-weight: bold;
-}
-
-.has-event::after {
-    content: '\1F4D6'; /* ไอคอนหนังสือ */
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px; /* ขนาดของไอคอนหนังสือ */
-    color: #4CAF50; /* สีเขียว */
-}
-
-/* สไตล์ส่วนอื่น ๆ */
-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-}
-
-section p {
-    font-size: 18px;
-    color: #555;
-    text-align: center;
+    #calendarModal #eventTable tr {
+        height: 60px; /* เพิ่มความสูงของแถวสำหรับหน้าจอใหญ่ */
+    }
 }
 
 /* การตอบสนองต่อหน้าจอขนาดกลาง */
