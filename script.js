@@ -76,7 +76,7 @@ window.onclick = function(event) {
     });
 }
 
-/* /* --------------------- Calendar Script --------------------- */
+/* --------------------- Calendar Script --------------------- */
 
 // ปฏิทิน
 const calendarDays = document.getElementById('calendarDays');
@@ -181,6 +181,11 @@ function loadEventsForDay(year, month, day) {
                 document.getElementById(`gookSan_${time}`).textContent = '';
                 document.getElementById(`pookySan_${time}`).textContent = '';
                 document.getElementById(`lSan_${time}`).textContent = '';
+                // ลบคลาส has-event หากมีการอัพเดตข้อมูลใหม่
+                document.getElementById(`somSan_${time}`).classList.remove('has-event');
+                document.getElementById(`gookSan_${time}`).classList.remove('has-event');
+                document.getElementById(`pookySan_${time}`).classList.remove('has-event');
+                document.getElementById(`lSan_${time}`).classList.remove('has-event');
             });
 
             if (events.length === 0) {
@@ -196,14 +201,23 @@ function loadEventsForDay(year, month, day) {
                         let slot = getTimeSlot(timeFromSlot);
 
                         if (slot) {
+                            let cellId = '';
                             if (event.translator === 'SOM SAN') {
-                                document.getElementById(`somSan_${slot}`).textContent = event.work;
+                                cellId = `somSan_${slot}`;
                             } else if (event.translator === 'GOOK SAN') {
-                                document.getElementById(`gookSan_${slot}`).textContent = event.work;
+                                cellId = `gookSan_${slot}`;
                             } else if (event.translator === 'POOKY SAN') {
-                                document.getElementById(`pookySan_${slot}`).textContent = event.work;
+                                cellId = `pookySan_${slot}`;
                             } else if (event.translator === 'L SAN') {
-                                document.getElementById(`lSan_${slot}`).textContent = event.work;
+                                cellId = `lSan_${slot}`;
+                            }
+
+                            if (cellId) {
+                                const cell = document.getElementById(cellId);
+                                if (cell) {
+                                    cell.textContent = event.work;
+                                    cell.classList.add('has-event');
+                                }
                             }
                         }
 
@@ -294,3 +308,15 @@ window.onclick = function(event) {
 }
 
 renderCalendar(currentMonth, currentYear);
+
+// เพิ่ม event listener สำหรับปุ่มรีเฟรชภายใน calendarModal
+calendarRefreshButton.addEventListener('click', () => {
+    if (currentDay) {
+        loadEventsForDay(currentYear, currentMonth + 1, currentDay);
+    }
+});
+
+// ฟังก์ชันสำหรับการปิดโมดอลจากปุ่ม Close
+function closeModal() {
+    calendarModal.style.display = "none";
+}
