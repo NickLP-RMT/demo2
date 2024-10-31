@@ -199,10 +199,8 @@ button[type="submit"]:hover,
 }
 
 #calendarModal .modal-content th {
-    background-color: #333; /* สีพื้นหลังของหัวตาราง */
-    color: #f5f5f5; /* สีตัวอักษร */
+    background-color: #f5f5f5; /* สีพื้นหลังของหัวตาราง */
     font-weight: bold;
-    font-size: 14px; /* ขนาดฟอนต์เป็น 14px */
 }
 
 #calendarModal .modal-content td.has-event {
