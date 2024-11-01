@@ -2,11 +2,6 @@
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('.section');
 
-
-// ตั้งค่าการซ่อน spinner modal โดยค่าเริ่มต้น
-spinnerModal.style.display = 'none'; // ซ่อน spinner modal ในการโหลดครั้งแรก
-
-
 navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -34,8 +29,13 @@ var bookingModal = document.getElementById('myModal');
 var modalMessage = document.getElementById('modalMessage');
 var spinnerModal = document.getElementById('spinnerModal');
 
+// ซ่อน spinner modal ในการโหลดหน้าเว็บครั้งแรก
+spinnerModal.style.display = 'none';
+
 form.onsubmit = function(event) {
     event.preventDefault();
+
+    spinnerModal.style.display = 'flex'; // แสดง spinner modal ขณะส่งข้อมูล
 
     var formData = new FormData(form);
 
@@ -46,8 +46,7 @@ form.onsubmit = function(event) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); // ตรวจสอบข้อมูลที่ได้รับ
-        spinnerModal.style.display = 'none'; // ซ่อน spinner modal
+        spinnerModal.style.display = 'none'; // ซ่อน spinner modal เมื่อส่งข้อมูลเสร็จสิ้น
 
         if (data.success) {
             modalMessage.innerHTML = '<i class="fas fa-check-circle" style="color: green; font-size: 48px;"></i><br>Booking successfully saved!';
@@ -62,7 +61,7 @@ form.onsubmit = function(event) {
         }
     })
     .catch(error => {
-        spinnerModal.style.display = 'none'; // ซ่อน spinner modal
+        spinnerModal.style.display = 'none'; // ซ่อน spinner modal เมื่อเกิดข้อผิดพลาด
         modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>There was an error.';
         bookingModal.style.display = "flex";
         console.error(error);
@@ -311,15 +310,3 @@ window.onclick = function(event) {
 }
 
 renderCalendar(currentMonth, currentYear);
-
-// เพิ่ม event listener สำหรับปุ่มรีเฟรชภายใน calendarModal
-calendarRefreshButton.addEventListener('click', () => {
-    if (currentDay) {
-        loadEventsForDay(currentYear, currentMonth + 1, currentDay);
-    }
-});
-
-// ฟังก์ชันสำหรับการปิดโมดอลจากปุ่ม Close
-function closeModal() {
-    calendarModal.style.display = "none";
-}
