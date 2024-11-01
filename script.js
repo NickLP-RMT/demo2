@@ -17,14 +17,10 @@ navLinks.forEach(link => {
     });
 });
 
-// ฟังก์ชันสำหรับการปิดโมดอลเฉพาะ bookingModal
-function closeBookingModal() {
-    bookingModal.style.display = "none";
-}
-
-// ฟังก์ชันสำหรับการปิดโมดอลเฉพาะ calendarModal
-function closeCalendarModal() {
-    calendarModal.style.display = "none";
+// ฟังก์ชันสำหรับการปิดโมดอล
+function closeModal() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => modal.style.display = "none");
 }
 
 // การจัดการฟอร์มจอง
@@ -37,9 +33,6 @@ form.onsubmit = function(event) {
     event.preventDefault();
 
     var formData = new FormData(form);
-
-    // แสดง spinner ก่อนเริ่มการส่งข้อมูล
-    spinnerModal.style.display = 'flex';
 
     fetch('https://script.google.com/macros/s/AKfycbxhVD0_-g7VKhYcOKMRTCaRx_OmoxgTCoIactfbWBRvL7v-MOXKlOabsXkF40Jd263B/exec', {
         method: 'POST',
@@ -69,6 +62,8 @@ form.onsubmit = function(event) {
         bookingModal.style.display = "flex";
         console.error(error);
     });
+
+    spinnerModal.style.display = 'flex'; // แสดง spinner modal ขณะส่งข้อมูล
 }
 
 // ปิดโมดอลเมื่อคลิกนอกพื้นที่
@@ -91,6 +86,7 @@ const nextMonth = document.getElementById('nextMonth');
 const todayButton = document.getElementById('todayButton'); 
 const calendarModal = document.getElementById("calendarModal");
 const calendarModalClose = document.getElementById("calendarModalClose");
+const spinner = document.getElementById('calendarSpinner');
 const calendarRefreshButton = document.getElementById("calendarRefresh");
 
 const modalText = document.getElementById("modalText");
@@ -169,16 +165,15 @@ function renderCalendar(month, year) {
 }
 
 function loadEventsForDay(year, month, day) {
-    // แสดง Spinner 2 ก่อนเริ่มการโหลดข้อมูล
-    spinnerModal.style.display = 'flex';
+    const calendarSpinner = document.getElementById('calendarSpinner');
+    calendarSpinner.classList.add('active'); // แสดง Spinner
 
     const requestUrl = `https://script.google.com/macros/s/AKfycbwzFXSq1cWuTMrEPzzKSsztUa2Ql6rRPc7zGunqTINMObAOxyOFUjn9YlGLg1HmUOao/exec?page=calendar&date=${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`;
 
     fetch(requestUrl)
         .then(response => response.json())
         .then(events => {
-            // ซ่อน Spinner 2 หลังจากโหลดข้อมูลเสร็จ
-            spinnerModal.style.display = 'none';
+            calendarSpinner.classList.remove('active'); // ซ่อน Spinner
 
             // ล้างข้อมูลเดิมในตาราง
             timeSlots.forEach(time => {
@@ -236,8 +231,7 @@ function loadEventsForDay(year, month, day) {
             calendarModal.style.display = "flex"; // แสดงโมดอล
         })
         .catch(error => {
-            // ซ่อน Spinner 2 ในกรณีที่เกิดข้อผิดพลาด
-            spinnerModal.style.display = 'none';
+            calendarSpinner.classList.remove('active'); // ซ่อน Spinner
             modalText.textContent = "An error occurred while fetching data.";
             eventTable.style.display = "none"; // ซ่อนตารางหากเกิดข้อผิดพลาด
             calendarModal.style.display = "flex"; // แสดงโมดอลพร้อมข้อความผิดพลาด
@@ -322,12 +316,7 @@ calendarRefreshButton.addEventListener('click', () => {
     }
 });
 
-// ฟังก์ชันสำหรับการปิดโมดอลจากปุ่ม Close (เฉพาะ bookingModal)
-function closeBookingModal() {
-    bookingModal.style.display = "none";
-}
-
-// ฟังก์ชันสำหรับการปิดโมดอลจากปุ่ม Close (เฉพาะ calendarModal)
-function closeCalendarModal() {
+// ฟังก์ชันสำหรับการปิดโมดอลจากปุ่ม Close
+function closeModal() {
     calendarModal.style.display = "none";
 }
