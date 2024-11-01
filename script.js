@@ -2,6 +2,11 @@
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('.section');
 
+
+// ตั้งค่าการซ่อน spinner modal โดยค่าเริ่มต้น
+spinnerModal.style.display = 'none'; // ซ่อน spinner modal ในการโหลดครั้งแรก
+
+
 navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -62,8 +67,6 @@ form.onsubmit = function(event) {
         bookingModal.style.display = "flex";
         console.error(error);
     });
-
-    spinnerModal.style.display = 'flex'; // แสดง spinner modal ขณะส่งข้อมูล
 }
 
 // ปิดโมดอลเมื่อคลิกนอกพื้นที่
