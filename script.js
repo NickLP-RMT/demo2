@@ -309,5 +309,4 @@ window.onclick = function(event) {
         }
     });
 }
-
 renderCalendar(currentMonth, currentYear);
