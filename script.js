@@ -48,19 +48,10 @@ form.onsubmit = function(event) {
     .then(data => {
         spinnerModal.style.display = 'none'; // ซ่อน spinner modal เมื่อส่งข้อมูลเสร็จสิ้น
 
-        // การตั้งค่า modalMessage สำหรับข้อความสำเร็จและข้อผิดพลาดต่างๆ
         if (data.success) {
-            modalMessage.className = "message-box"; // รีเซ็ตคลาสก่อน
-            modalMessage.classList.add("success-message"); // เพิ่มคลาสสีเขียว
-            modalMessage.innerHTML = '<i class="fas fa-check-circle"></i><br>Booking successfully saved!';
-        } else if (data.message === "Duplicate booking: A booking already exists for this date and time") {
-            modalMessage.className = "message-box"; // รีเซ็ตคลาสก่อน
-            modalMessage.classList.add("error-message"); // เพิ่มคลาสสีแดง
-            modalMessage.innerHTML = '<i class="fas fa-times-circle"></i><br>Duplicate booking: A booking already exists for this date and time';
-        } else if (data.message === "Please enter a valid time: Time From must be less than Time To") {
-            modalMessage.className = "message-box"; // รีเซ็ตคลาสก่อน
-            modalMessage.classList.add("warning-message"); // เพิ่มคลาสสีเหลือง
-            modalMessage.innerHTML = '<i class="fas fa-exclamation-triangle"></i><br>Please enter a valid time: Time From must be less than Time To';
+            modalMessage.innerHTML = '<i class="fas fa-check-circle" style="color: green; font-size: 48px;"></i><br>Booking successfully saved!';
+        } else {
+            modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>' + data.message;
         }
 
         bookingModal.style.display = "flex";
@@ -71,8 +62,7 @@ form.onsubmit = function(event) {
     })
     .catch(error => {
         spinnerModal.style.display = 'none'; // ซ่อน spinner modal เมื่อเกิดข้อผิดพลาด
-        modalMessage.className = "message-box error-message"; // ตั้งค่าเป็นข้อความข้อผิดพลาด
-        modalMessage.innerHTML = '<i class="fas fa-times-circle"></i><br>There was an error.';
+        modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>There was an error.';
         bookingModal.style.display = "flex";
         console.error(error);
     });
