@@ -113,7 +113,21 @@ body {
 .time-group > div {
     flex: 1;
 }
+/* เพิ่ม selector ที่ระบุให้แสดงไอคอนเฉพาะในปฏิทิน */
+.calendar-days .calendar-day.has-event::after {
+    content: '\1F4D6'; /* ไอคอนหนังสือ */
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px; /* ขนาดของไอคอนหนังสือ */
+    color: #4CAF50; /* สีเขียว */
+}
 
+/* ซ่อนไอคอนใน calendarModal */
+#calendarModal .calendar-day.has-event::after {
+    display: none;
+}
 button[type="submit"],
 .btn-submit {
     width: 100%;
