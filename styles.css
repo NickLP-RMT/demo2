@@ -280,6 +280,20 @@ button[type="submit"]:hover,
     display: block; /* แสดง Spinner เมื่อมีการโหลดข้อมูล */
 }
 
+#spinnerModal {
+    display: none; /* ซ่อน spinner เริ่มต้น */
+    position: fixed; /* ตรึงตำแหน่งไว้ที่กลางหน้าจอ */
+    top: 0;
+    left: 0;
+    width: 100vw; /* ครอบคลุมทั้งหน้าจอ */
+    height: 100vh; /* ครอบคลุมทั้งหน้าจอ */
+    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสง */
+    z-index: 1000; /* เลเยอร์สูงเพื่อให้แสดงอยู่ด้านบน */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .spinner {
     border: 12px solid #f3f3f3;
     border-top: 12px solid #3498db;
