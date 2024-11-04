@@ -129,6 +129,10 @@ body {
     display: none;
     content: none; /* ซ่อนไอคอนใน modal */
 }
+#calendarModal .modal-content thead tr:first-child {
+    background-color: #add8e6; /* สีพื้นหลังใหม่สำหรับแถวบนสุด */
+}
+
 button[type="submit"],
 .btn-submit {
     width: 100%;
