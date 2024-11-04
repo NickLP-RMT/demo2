@@ -127,6 +127,7 @@ body {
 /* ซ่อนไอคอนใน calendarModal */
 #calendarModal .calendar-day.has-event::after {
     display: none;
+    content: none; /* ซ่อนไอคอนใน modal */
 }
 button[type="submit"],
 .btn-submit {
