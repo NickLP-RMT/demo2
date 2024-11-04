@@ -180,15 +180,21 @@ function loadEventsForDay(year, month, day) {
 
             // ล้างข้อมูลเดิมในตาราง
             timeSlots.forEach(time => {
-                document.getElementById(`somSan_${time}`).textContent = '';
-                document.getElementById(`gookSan_${time}`).textContent = '';
-                document.getElementById(`pookySan_${time}`).textContent = '';
-                document.getElementById(`lSan_${time}`).textContent = '';
-                // ลบคลาส has-event หากมีการอัพเดตข้อมูลใหม่
-                document.getElementById(`somSan_${time}`).classList.remove('has-event');
-                document.getElementById(`gookSan_${time}`).classList.remove('has-event');
-                document.getElementById(`pookySan_${time}`).classList.remove('has-event');
-                document.getElementById(`lSan_${time}`).classList.remove('has-event');
+                const somSanCell = document.getElementById(`somSan_${time}`);
+                const gookSanCell = document.getElementById(`gookSan_${time}`);
+                const pookySanCell = document.getElementById(`pookySan_${time}`);
+                const lSanCell = document.getElementById(`lSan_${time}`);
+                
+                // ลบคลาส has-event สำหรับเซลล์ในโมดอล
+                somSanCell.classList.remove('has-event');
+                gookSanCell.classList.remove('has-event');
+                pookySanCell.classList.remove('has-event');
+                lSanCell.classList.remove('has-event');
+                
+                somSanCell.textContent = '';
+                gookSanCell.textContent = '';
+                pookySanCell.textContent = '';
+                lSanCell.textContent = '';
             });
 
             if (events.length === 0) {
@@ -219,7 +225,7 @@ function loadEventsForDay(year, month, day) {
                                 const cell = document.getElementById(cellId);
                                 if (cell) {
                                     cell.textContent = event.work;
-                                    cell.classList.add('has-event');
+                                    cell.classList.add('has-event'); // เพิ่มคลาส has-event
                                 }
                             }
                         }
@@ -241,6 +247,7 @@ function loadEventsForDay(year, month, day) {
             console.error(error);
         });
 }
+
 
 function getTimeSlot(timeFrom) {
     const slots = {
