@@ -178,7 +178,47 @@ button[type="submit"]:hover,
     position: relative;
     overflow: auto; /* เพิ่มการเลื่อนถ้าข้อมูลเกินขนาด */
 }
+/* CSS สำหรับตกแต่ง Modal Message */
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
 
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+}
+
+.message-box {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.success-message {
+    color: #28a745;
+}
+
+.error-message {
+    color: #dc3545;
+}
+
+.warning-message {
+    color: #ffc107;
+}
+
+.message-box i {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
 /* สไตล์หัวข้อของตาราง */
 #calendarModal .modal-content table {
     width: 100%;
