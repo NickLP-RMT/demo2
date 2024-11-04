@@ -128,7 +128,7 @@ button[type="submit"],
     transition: background-color 0.3s;
 }
 .message-icon {
-    width: 48px; /* กำหนดขนาดไอคอน */
+    width: 64px; /* กำหนดขนาดไอคอน */
     margin-bottom: 10px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
 }
 button[type="submit"]:hover,
