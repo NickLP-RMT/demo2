@@ -310,3 +310,36 @@ window.onclick = function(event) {
     });
 }
 renderCalendar(currentMonth, currentYear);
+
+// Login functionality for Translator Only
+const loginForm = document.getElementById('loginForm');
+const errorMessage = document.getElementById('errorMessage');
+const passwordInput = document.getElementById('password');
+
+loginForm.onsubmit = function(event) {
+    event.preventDefault();
+    const userName = document.getElementById('userName').value;
+    const password = passwordInput.value;
+    let redirectUrl = '';
+
+    if (userName === 'Som san' && password === 'rmtsom2024') {
+        redirectUrl = 'somsan.html';
+    } else if (userName === 'Gook san' && password === 'gook1234') {
+        redirectUrl = 'gooksan.html';
+    } else if (userName === 'Pooky san' && password === 'pooky1234') {
+        redirectUrl = 'pookysan.html';
+    } else if (userName === 'L san' && password === 'l1234') {
+        redirectUrl = 'lsan.html';
+    } else {
+        errorMessage.textContent = 'Password incorrect';
+        return;
+    }
+
+    // Redirect to the specific translator page and clear the form
+    window.location.href = redirectUrl;
+    loginForm.reset();
+};
+
+passwordInput.addEventListener('input', function() {
+    errorMessage.textContent = '';
+});
