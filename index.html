@@ -367,18 +367,24 @@
 
 <!-- Translator Only Section -->
 <section id="translator" class="section">
-    <div class="login-container">
-        <h2>Login</h2>
+    <div class="form-container">
+        <h2><i class="fas fa-user-shield"></i> Translator Login</h2>
         <form id="loginForm">
-            <select id="userName" required>
-                <option value="" disabled selected>Select Translator</option>
-                <option value="Som san">Som san</option>
-                <option value="Gook san">Gook san</option>
-                <option value="Pooky san">Pooky san</option>
-                <option value="L san">L san</option>
-            </select>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="submit" value="Login">
+            <div class="form-group">
+                <label for="userName">Translator Name:</label>
+                <select id="userName" required>
+                    <option value="" disabled selected>Select Translator</option>
+                    <option value="Som san">Som san</option>
+                    <option value="Gook san">Gook san</option>
+                    <option value="Pooky san">Pooky san</option>
+                    <option value="L san">L san</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn-submit">Login</button>
             <div id="errorMessage" class="error"></div>
         </form>
     </div>
