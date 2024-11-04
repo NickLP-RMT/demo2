@@ -365,14 +365,73 @@
 </div>
     </section>
 
-    <!-- ส่วนของ Translator Only -->
-    <section id="translator" class="section">
-        <div class="container">
-            <h2><i class="fas fa-user-shield"></i> Translator Only</h2>
-            <!-- เนื้อหา -->
-            <a href="login.html" class="btn">Translator Login</a>
-        </div>
-    </section>
+<!-- Modal หน้า Translator Only -->
+<div id="translatorModal" class="modal">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <select id="userName" required>
+        <option value="" disabled selected>Select Translator</option>
+        <option value="Som san">Som san</option>
+        <option value="Gook san">Gook san</option>
+        <option value="Pooky san">Pooky san</option>
+        <option value="L san">L san</option>
+      </select>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="submit" value="Login">
+      <div id="errorMessage" class="error"></div>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  // การจัดการการเปิด modal สำหรับ Translator Only
+  const translatorLink = document.getElementById('translatorOnlyLink');
+  const translatorModal = document.getElementById('translatorModal');
+  const errorMessage = document.getElementById('errorMessage');
+  const loginForm = document.getElementById('loginForm');
+  const passwordInput = document.getElementById('password');
+
+  translatorLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    translatorModal.style.display = 'flex';
+  });
+
+  loginForm.onsubmit = function(event) {
+    event.preventDefault();
+    const userName = document.getElementById('userName').value;
+    const password = passwordInput.value;
+    let redirectUrl = '';
+
+    if (userName === 'Som san' && password === 'rmtsom2024') {
+      redirectUrl = 'somsan.html';
+    } else if (userName === 'Gook san' && password === 'gook1234') {
+      redirectUrl = 'gooksan.html';
+    } else if (userName === 'Pooky san' && password === 'pooky1234') {
+      redirectUrl = 'pookysan.html';
+    } else if (userName === 'L san' && password === 'l1234') {
+      redirectUrl = 'lsan.html';
+    } else {
+      errorMessage.textContent = 'Password incorrect';
+      return;
+    }
+
+    window.location.href = redirectUrl;
+    loginForm.reset(); // ล้างฟอร์ม
+  }
+
+  passwordInput.addEventListener('input', function() {
+    errorMessage.textContent = '';
+  });
+
+  // ปิด modal เมื่อคลิกนอกพื้นที่ modal
+  window.onclick = function(event) {
+    if (event.target == translatorModal) {
+      translatorModal.style.display = "none";
+    }
+  };
+</script>
 
     <!-- Modal แสดงผลลัพธ์การจอง -->
 <div id="myModal" class="modal">
