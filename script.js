@@ -178,23 +178,18 @@ function loadEventsForDay(year, month, day) {
         .then(events => {
             calendarSpinner.classList.remove('active'); // ซ่อน Spinner
 
-            // ล้างข้อมูลเดิมในตาราง
+            // ล้างข้อมูลเดิมในตารางและลบไอคอน 📖
             timeSlots.forEach(time => {
-                const somSanCell = document.getElementById(`somSan_${time}`);
-                const gookSanCell = document.getElementById(`gookSan_${time}`);
-                const pookySanCell = document.getElementById(`pookySan_${time}`);
-                const lSanCell = document.getElementById(`lSan_${time}`);
+                document.getElementById(`somSan_${time}`).textContent = '';
+                document.getElementById(`gookSan_${time}`).textContent = '';
+                document.getElementById(`pookySan_${time}`).textContent = '';
+                document.getElementById(`lSan_${time}`).textContent = '';
                 
-                // ลบคลาส has-event สำหรับเซลล์ในโมดอล
-                somSanCell.classList.remove('has-event');
-                gookSanCell.classList.remove('has-event');
-                pookySanCell.classList.remove('has-event');
-                lSanCell.classList.remove('has-event');
-                
-                somSanCell.textContent = '';
-                gookSanCell.textContent = '';
-                pookySanCell.textContent = '';
-                lSanCell.textContent = '';
+                // ลบคลาส has-event เพื่อไม่ให้ไอคอน 📖 แสดงใน modal
+                document.getElementById(`somSan_${time}`).classList.remove('has-event');
+                document.getElementById(`gookSan_${time}`).classList.remove('has-event');
+                document.getElementById(`pookySan_${time}`).classList.remove('has-event');
+                document.getElementById(`lSan_${time}`).classList.remove('has-event');
             });
 
             if (events.length === 0) {
@@ -225,7 +220,6 @@ function loadEventsForDay(year, month, day) {
                                 const cell = document.getElementById(cellId);
                                 if (cell) {
                                     cell.textContent = event.work;
-                                    cell.classList.add('has-event'); // เพิ่มคลาส has-event
                                 }
                             }
                         }
@@ -247,7 +241,6 @@ function loadEventsForDay(year, month, day) {
             console.error(error);
         });
 }
-
 
 function getTimeSlot(timeFrom) {
     const slots = {
