@@ -52,7 +52,7 @@ form.onsubmit = function(event) {
             modalMessage.className = "message-box success-message"; // คลาสสำหรับสีเขียวใน CSS
             modalMessage.innerHTML = '<img src="icons/success-icon.png" alt="Success Icon" class="message-icon"><i class="fas fa-check-circle" style="font-size: 48px;"></i><br>Booking successfully saved!';
         } else {
-            modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>' + data.message;
+            modalMessage.innerHTML = '<img src="icons/TimeError.png" alt="Success Icon" class="message-icon"><i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>' + data.message;
         }
 
         bookingModal.style.display = "flex";
