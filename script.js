@@ -49,7 +49,8 @@ form.onsubmit = function(event) {
         spinnerModal.style.display = 'none'; // ซ่อน spinner modal เมื่อส่งข้อมูลเสร็จสิ้น
 
         if (data.success) {
-            modalMessage.innerHTML = '<i class="fas fa-check-circle" style="color: green; font-size: 48px;"></i><br>Booking successfully saved!';
+            modalMessage.className = "message-box success-message"; // คลาสสำหรับสีเขียวใน CSS
+            modalMessage.innerHTML = '<i class="fas fa-check-circle" style="font-size: 48px;"></i><br>Booking successfully saved!';
         } else {
             modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>' + data.message;
         }
