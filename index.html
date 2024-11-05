@@ -385,10 +385,20 @@
                 <input type="password" id="password" placeholder="Enter your password" required>
             </div>
             <button type="submit" class="btn-submit">Login</button>
-            <div id="errorMessage" class="error"></div>
         </form>
     </div>
 </section>
+
+<!-- Modal สำหรับแสดงผลลัพธ์การแจ้งเตือน -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalMessage" class="message-box">
+            <!-- Content ของข้อความจะแสดงที่นี่ -->
+        </div>
+    </div>
+</div>
+
 
     <!-- Modal แสดงผลลัพธ์การจอง -->
 <div id="myModal" class="modal">
