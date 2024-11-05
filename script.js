@@ -214,7 +214,7 @@ function loadEventsForDay(year, month, day) {
                             if (cellId) {
                                 const cell = document.getElementById(cellId);
                                 if (cell) {
-                                    cell.textContent = event.work;
+                                    cell.textContent = `${event.work} by ${event.bookingBy}`;
                                 }
                             }
                         }
