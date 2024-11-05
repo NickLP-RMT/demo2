@@ -313,13 +313,13 @@ renderCalendar(currentMonth, currentYear);
 
 // Login functionality for Translator Only
 const loginForm = document.getElementById('loginForm');
-const errorMessage = document.getElementById('errorMessage');
-const passwordInput = document.getElementById('password');
+const modalMessage = document.getElementById('modalMessage');
+const bookingModal = document.getElementById('myModal');  // อ้างอิงโมดาลใน Booking Form
 
 loginForm.onsubmit = function(event) {
     event.preventDefault();
     const userName = document.getElementById('userName').value;
-    const password = passwordInput.value;
+    const password = document.getElementById('password').value;
     let redirectUrl = '';
 
     if (userName === 'Som san' && password === 'rmtsom2024') {
@@ -331,7 +331,10 @@ loginForm.onsubmit = function(event) {
     } else if (userName === 'L san' && password === 'l1234') {
         redirectUrl = 'lsan.html';
     } else {
-        errorMessage.textContent = 'Password incorrect';
+        // แสดงโมดาลพร้อมข้อความแจ้งเตือน Password incorrect
+        modalMessage.className = "message-box error-message";  // คลาสสำหรับข้อความสีแดง
+        modalMessage.innerHTML = '<img src="icons/error-icon.png" alt="Error Icon" class="message-icon"><i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>Password incorrect';
+        bookingModal.style.display = "flex";  // แสดงโมดาล
         return;
     }
 
@@ -340,6 +343,9 @@ loginForm.onsubmit = function(event) {
     loginForm.reset();
 };
 
-passwordInput.addEventListener('input', function() {
-    errorMessage.textContent = '';
-});
+// ปิดโมดอลเมื่อคลิกนอกพื้นที่
+window.onclick = function(event) {
+    if (event.target == bookingModal) {
+        bookingModal.style.display = "none";
+    }
+};
