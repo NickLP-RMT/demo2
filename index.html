@@ -17,12 +17,22 @@
             <a href="#">Booking System</a>
         </div>
         <ul class="navbar-menu nav-links">
+	    <li><a href="#dashboard" class="active">Dashboard</a></li>
             <li><a href="#booking" class="active">Booking</a></li>
             <li><a href="#calendar">View Calendar</a></li>
             <li><a href="#translator">Translator Only</a></li>
         </ul>
     </nav>
-
+<!-- ส่วนของ Dashboard -->
+<section id="dashboard" class="section active">
+    <div class="dashboard-container">
+        <h2>Dashboard</h2>
+        <!-- ส่วนที่ใช้แสดงกราฟและข้อมูลต่าง ๆ เช่น ภาพรวมการจอง, การจองตามวันที่, ช่วงเวลาในการจอง -->
+        <div id="booking-overview"></div>
+        <div id="booking-heatmap"></div>
+        <div id="time-usage-chart"></div>
+    </div>
+</section>
     <!-- ส่วนของฟอร์มจอง -->
     <section id="booking" class="section active">
         <div class="form-container">
