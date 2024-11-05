@@ -17,6 +17,98 @@ navLinks.forEach(link => {
     });
 });
 
+// ตั้งค่าข้อมูลกราฟและการกำหนดค่าต่าง ๆ
+document.addEventListener("DOMContentLoaded", function() {
+    // ภาพรวมการจองทั้งหมด (กราฟวงกลม)
+    const bookingOverviewCtx = document.getElementById('bookingOverviewChart').getContext('2d');
+    const bookingOverviewChart = new Chart(bookingOverviewCtx, {
+        type: 'pie',
+        data: {
+            labels: ['SOM SAN', 'GOOK SAN', 'POOKY SAN', 'L SAN'], // แทนชื่อของล่าม
+            datasets: [{
+                label: 'Total Bookings',
+                data: [40, 30, 20, 10], // ตัวอย่างข้อมูลสำหรับการจองแต่ละคน
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' }
+            }
+        }
+    });
+
+    // การจองตามวันที่ (Heatmap)
+    const bookingHeatmapCtx = document.getElementById('bookingHeatmapChart').getContext('2d');
+    const bookingHeatmapChart = new Chart(bookingHeatmapCtx, {
+        type: 'bar',
+        data: {
+            labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11'],
+            datasets: [{
+                label: 'Bookings',
+                data: [5, 3, 8, 4, 6, 2, 7], // จำนวนการจองในแต่ละวัน
+                backgroundColor: '#36A2EB',
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: { title: { display: true, text: 'วันที่' } },
+                y: { title: { display: true, text: 'จำนวนการจอง' } }
+            }
+        }
+    });
+
+    // การใช้ช่วงเวลาในการจองประจำวัน (กราฟแท่ง)
+    const timeUsageCtx = document.getElementById('timeUsageChart').getContext('2d');
+    const timeUsageChart = new Chart(timeUsageCtx, {
+        type: 'line',
+        data: {
+            labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'],
+            datasets: [
+                {
+                    label: 'SOM SAN',
+                    data: [1, 2, 0, 3, 1, 4, 2, 3, 0],
+                    borderColor: '#FF6384',
+                    fill: false
+                },
+                {
+                    label: 'GOOK SAN',
+                    data: [2, 1, 3, 2, 0, 1, 4, 2, 1],
+                    borderColor: '#36A2EB',
+                    fill: false
+                },
+                {
+                    label: 'POOKY SAN',
+                    data: [1, 3, 1, 0, 2, 3, 1, 2, 4],
+                    borderColor: '#FFCE56',
+                    fill: false
+                },
+                {
+                    label: 'L SAN',
+                    data: [0, 2, 1, 2, 3, 1, 0, 2, 3],
+                    borderColor: '#4BC0C0',
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' }
+            },
+            scales: {
+                x: { title: { display: true, text: 'ช่วงเวลา' } },
+                y: { title: { display: true, text: 'จำนวนการจอง' } }
+            }
+        }
+    });
+});
+
 // ฟังก์ชันสำหรับการปิดโมดอล
 function closeModal() {
     const modals = document.querySelectorAll('.modal');
