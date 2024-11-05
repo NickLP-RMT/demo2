@@ -52,6 +52,7 @@ form.onsubmit = function(event) {
             modalMessage.className = "message-box success-message"; // คลาสสำหรับสีเขียวใน CSS
             modalMessage.innerHTML = '<img src="icons/success-icon.png" alt="Success Icon" class="message-icon"><i class="fas fa-check-circle" style="font-size: 48px;"></i><br>Booking successfully saved!';
         } else {
+            modalMessage.className = "message-box error-message";
             modalMessage.innerHTML = '<img src="icons/TimeError.png" alt="Warning Icon" class="message-icon"><i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>' + data.message;
         }
 
@@ -63,6 +64,7 @@ form.onsubmit = function(event) {
     })
     .catch(error => {
         spinnerModal.style.display = 'none'; // ซ่อน spinner modal เมื่อเกิดข้อผิดพลาด
+        modalMessage.className = "message-box error-message";
         modalMessage.innerHTML = '<i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>There was an error.';
         bookingModal.style.display = "flex";
         console.error(error);
@@ -167,6 +169,7 @@ function renderCalendar(month, year) {
     }
 }
 
+// ฟังก์ชันโหลดเหตุการณ์ในวันนั้น
 function loadEventsForDay(year, month, day) {
     const calendarSpinner = document.getElementById('calendarSpinner');
     calendarSpinner.classList.add('active'); // แสดง Spinner
@@ -177,19 +180,11 @@ function loadEventsForDay(year, month, day) {
         .then(response => response.json())
         .then(events => {
             calendarSpinner.classList.remove('active'); // ซ่อน Spinner
-
-            // ล้างข้อมูลเดิมในตารางและลบไอคอน 📖
             timeSlots.forEach(time => {
                 document.getElementById(`somSan_${time}`).textContent = '';
                 document.getElementById(`gookSan_${time}`).textContent = '';
                 document.getElementById(`pookySan_${time}`).textContent = '';
                 document.getElementById(`lSan_${time}`).textContent = '';
-                
-                // ลบคลาส has-event เพื่อไม่ให้ไอคอน 📖 แสดงใน modal
-                document.getElementById(`somSan_${time}`).classList.remove('has-event');
-                document.getElementById(`gookSan_${time}`).classList.remove('has-event');
-                document.getElementById(`pookySan_${time}`).classList.remove('has-event');
-                document.getElementById(`lSan_${time}`).classList.remove('has-event');
             });
 
             if (events.length === 0) {
@@ -231,13 +226,13 @@ function loadEventsForDay(year, month, day) {
                 modalText.textContent = `Details for ${months[month - 1]} ${day}, ${year}`;
             }
 
-            calendarModal.style.display = "flex"; // แสดงโมดอล
+            calendarModal.style.display = "flex"; // แสดงโมดาล
         })
         .catch(error => {
             calendarSpinner.classList.remove('active'); // ซ่อน Spinner
             modalText.textContent = "An error occurred while fetching data.";
             eventTable.style.display = "none"; // ซ่อนตารางหากเกิดข้อผิดพลาด
-            calendarModal.style.display = "flex"; // แสดงโมดอลพร้อมข้อความผิดพลาด
+            calendarModal.style.display = "flex"; // แสดงโมดาลพร้อมข้อความผิดพลาด
             console.error(error);
         });
 }
@@ -300,26 +295,14 @@ calendarModalClose.onclick = function() {
     calendarModal.style.display = "none";
 }
 
-// ปิดโมดอลเมื่อคลิกนอกพื้นที่
-window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-}
-renderCalendar(currentMonth, currentYear);
-
-// Login functionality for Translator Only
+// ฟังก์ชัน Login สำหรับ Translator Only
 const loginForm = document.getElementById('loginForm');
-const modalMessage = document.getElementById('modalMessage');
-const bookingModal = document.getElementById('myModal');  // อ้างอิงโมดาลใน Booking Form
+const passwordInput = document.getElementById('password');
 
 loginForm.onsubmit = function(event) {
     event.preventDefault();
     const userName = document.getElementById('userName').value;
-    const password = document.getElementById('password').value;
+    const password = passwordInput.value;
     let redirectUrl = '';
 
     if (userName === 'Som san' && password === 'rmtsom2024') {
@@ -331,21 +314,18 @@ loginForm.onsubmit = function(event) {
     } else if (userName === 'L san' && password === 'l1234') {
         redirectUrl = 'lsan.html';
     } else {
-        // แสดงโมดาลพร้อมข้อความแจ้งเตือน Password incorrect
-        modalMessage.className = "message-box error-message";  // คลาสสำหรับข้อความสีแดง
+        modalMessage.className = "message-box error-message";
         modalMessage.innerHTML = '<img src="icons/error-icon.png" alt="Error Icon" class="message-icon"><i class="fas fa-times-circle" style="color: red; font-size: 48px;"></i><br>Password incorrect';
         bookingModal.style.display = "flex";  // แสดงโมดาล
         return;
     }
 
-    // Redirect to the specific translator page and clear the form
     window.location.href = redirectUrl;
     loginForm.reset();
 };
 
-// ปิดโมดอลเมื่อคลิกนอกพื้นที่
-window.onclick = function(event) {
-    if (event.target == bookingModal) {
-        bookingModal.style.display = "none";
-    }
-};
+passwordInput.addEventListener('input', function() {
+    modalMessage.textContent = '';
+});
+
+renderCalendar(currentMonth, currentYear);
