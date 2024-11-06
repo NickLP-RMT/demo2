@@ -152,11 +152,11 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    flex: 1;
 }
 
 /* ตั้งค่าให้การ์ดแต่ละใบมีความกว้างและสูงเท่ากัน */
 .card-container {
+    width: 100%; /* ปรับให้การ์ดมีความกว้างเต็มในคอลัมน์ */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
