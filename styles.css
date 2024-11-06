@@ -160,6 +160,13 @@ canvas {
     max-width: 100%;
 }
 
+.pie-chart-container {
+    height: 320px; /* ตั้งค่าความสูงให้เท่ากับการ์ดล่าม */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* สไตล์เนื้อหาหลัก */
 .section {
     display: none;
