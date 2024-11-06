@@ -39,29 +39,52 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // การจองตามวันที่ (Heatmap)
-    const bookingHeatmapCtx = document.getElementById('bookingHeatmapChart').getContext('2d');
-    const bookingHeatmapChart = new Chart(bookingHeatmapCtx, {
-        type: 'bar',
-        data: {
-            labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11'],
-            datasets: [{
-                label: 'Bookings',
-                data: [5, 3, 8, 4, 6, 2, 7], // จำนวนการจองในแต่ละวัน
-                backgroundColor: '#36A2EB',
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: false }
+// การจองตามวันที่ (Stacked Bar Chart แยกตามล่าม)
+const bookingHeatmapCtx = document.getElementById('bookingHeatmapChart').getContext('2d');
+const bookingHeatmapChart = new Chart(bookingHeatmapCtx, {
+    type: 'bar',
+    data: {
+        labels: ['01/11', '02/11', '03/11', '04/11', '05/11', '06/11', '07/11'], // วันที่
+        datasets: [
+            {
+                label: 'SOM SAN',
+                data: [1, 2, 1, 3, 1, 2, 3],
+                backgroundColor: '#FF6384',
             },
-            scales: {
-                x: { title: { display: true, text: 'วันที่' } },
-                y: { title: { display: true, text: 'จำนวนการจอง' } }
+            {
+                label: 'GOOK SAN',
+                data: [2, 1, 3, 1, 2, 1, 1],
+                backgroundColor: '#36A2EB',
+            },
+            {
+                label: 'POOKY SAN',
+                data: [1, 3, 1, 2, 3, 1, 1],
+                backgroundColor: '#FFCE56',
+            },
+            {
+                label: 'L SAN',
+                data: [2, 1, 0, 1, 1, 3, 2],
+                backgroundColor: '#4BC0C0',
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { position: 'top' }
+        },
+        scales: {
+            x: {
+                title: { display: true, text: 'วันที่' },
+                stacked: true
+            },
+            y: {
+                title: { display: true, text: 'จำนวนการจอง' },
+                stacked: true
             }
         }
-    });
+    }
+});
 
     // การใช้ช่วงเวลาในการจองประจำวัน (กราฟแท่ง)
     const timeUsageCtx = document.getElementById('timeUsageChart').getContext('2d');
