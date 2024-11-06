@@ -139,7 +139,7 @@ body {
 /* การ์ดล่ามแต่ละคน */
 .translator-card {
     background-color: #fff; /* สีพื้นหลังของการ์ด */
-    border: 2px solid #fff; /* กรอบสีขาว */
+    border: 5px solid #fff; /* กรอบสีขาว */
     border-radius: 8px; /* มุมโค้งของการ์ด */
     padding: 20px;
     text-align: center;
