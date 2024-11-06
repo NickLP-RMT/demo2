@@ -50,34 +50,20 @@ body {
 .navbar-menu a.active {
     background-color: #1976d2;
 }
-
-/* สไตล์สำหรับ Dashboard */
-#dashboard {
+.dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
+    text-align: center;
 }
 
-.dashboard-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
+.chart-container {
+    margin: 30px 0;
 }
 
-.dashboard-chart {
-    flex: 1;
-}
-
-#translatorPieChartContainer {
-    max-width: 40%;
-}
-
-#timeSlotChartContainer {
-    max-width: 55%;
-}
-
-#calendarHeatmapContainer {
-    width: 100%;
+canvas {
+    max-width: 100%;
+    height: 400px;
 }
 
 /* สไตล์เนื้อหาหลัก */
