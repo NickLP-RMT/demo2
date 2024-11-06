@@ -127,17 +127,7 @@ body {
 
 /* กราฟวงกลม */
 .chart-card {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 100%;
-}
-
-.chart-card {
-    flex: 1;
-    height: 100%; /* ให้การ์ดเต็มพื้นที่ของแถว */
+    width: 100%; /* ปรับให้ครอบคลุมพื้นที่เต็ม */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
