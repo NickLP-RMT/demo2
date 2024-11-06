@@ -109,13 +109,12 @@ body {
 
 .dashboard-row {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
-    margin-bottom: 20px;
+    width: 100%;
 }
 
 .dashboard-row.full-width {
-    display: block; /* ให้แถวที่มี full-width กินความกว้างเต็มจอ */
+       width: 100%;
 }
 
 .card-column {
@@ -132,6 +131,30 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex: 2;
 }
+.chart-card, .card-container {
+    flex: 1;
+    height: 100%; /* ให้การ์ดเต็มพื้นที่ของแถว */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* ตั้งค่าให้การ์ดแต่ละใบมีความกว้างและสูงเท่ากัน */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 
 .chart-card:hover {
     transform: scale(1.02);
