@@ -30,36 +30,30 @@
         <div class="dashboard-container">
             <h2>Dashboard</h2>
 
-            <div class="dashboard-row">
-                <!-- การ์ดข้อมูลล่ามแต่ละคน (ด้านซ้าย) -->
-                <div class="card-column">
-                    <div class="translator-card" style="background-color: #FF6384;">
-                        <h4>SOM SAN</h4>
-                        <p>งานทั้งหมด: 40</p>
-                    </div>
-                    <div class="translator-card" style="background-color: #36A2EB;">
-                        <h4>GOOK SAN</h4>
-                        <p>งานทั้งหมด: 30</p>
-                    </div>
-                    <div class="translator-card" style="background-color: #FFCE56;">
-                        <h4>POOKY SAN</h4>
-                        <p>งานทั้งหมด: 20</p>
-                    </div>
-                    <div class="translator-card" style="background-color: #4BC0C0;">
-                        <h4>L SAN</h4>
-                        <p>งานทั้งหมด: 10</p>
-                    </div>
-                </div>
-
-                <!-- กราฟวงกลม ภาพรวมการจองทั้งหมด (ด้านขวา) -->
-                <div class="chart-card">
-                    <h3>ภาพรวมการจองทั้งหมด</h3>
-                    <canvas id="bookingOverviewChart"></canvas>
-                </div>
-		    <div class="pie-chart-container">
-    		   <canvas id="bookingOverviewChart"></canvas>
-                   </div>
-            </div>
+  <!-- แถวแรก: การ์ดของล่าม -->
+    <div class="dashboard-row">
+        <div class="card-container som-san-card">
+            <h3>SOM SAN</h3>
+            <p>จำนวนงาน: 40</p>
+        </div>
+        <div class="card-container pooky-san-card">
+            <h3>POOKY SAN</h3>
+            <p>จำนวนงาน: 20</p>
+        </div>
+        <div class="card-container gook-san-card">
+            <h3>GOOK SAN</h3>
+            <p>จำนวนงาน: 30</p>
+        </div>
+        <div class="card-container l-san-card">
+            <h3>L SAN</h3>
+            <p>จำนวนงาน: 10</p>
+        </div>
+        <!-- กราฟวงกลมอยู่ทางขวาสุด -->
+        <div class="chart-card">
+            <h3>ภาพรวมการจองทั้งหมด</h3>
+            <canvas id="bookingOverviewChart"></canvas>
+        </div>
+    </div>
 
             <!-- การจองตามวันที่ (แถวที่สอง) -->
             <div class="dashboard-row full-width">
