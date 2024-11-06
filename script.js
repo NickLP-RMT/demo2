@@ -104,6 +104,9 @@ renderTranslatorPieChart(sampleData);
 renderTimeSlotChart(sampleData);
 renderCalendarHeatmap(sampleData);
 
+// ซ่อน spinner เมื่อโหลดข้อมูลเสร็จทั้งหมด
+spinnerModal.style.display = 'none';
+
 // ฟังก์ชันสำหรับการปิดโมดอล
 function closeModal() {
     const modals = document.querySelectorAll('.modal');
