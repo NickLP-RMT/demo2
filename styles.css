@@ -70,6 +70,10 @@ body {
     color: #fff;
 }
 
+.interpreter-card, .card-container {
+    width: 100%; /* หรือค่าคงที่ เช่น 300px */
+    height: 150px; /* หรือค่าที่ต้องการให้เป็นสี่เหลี่ยมผืนผ้า */
+}
 /* กำหนดสีสำหรับแต่ละล่าม */
 .interpreter-card.som-san {
     background-color: #FF6384; /* สีของ SOM SAN */
