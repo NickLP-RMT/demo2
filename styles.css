@@ -127,7 +127,11 @@ body {
 
 /* กราฟวงกลม */
 .chart-card {
-    width: 100%; /* ปรับให้ครอบคลุมพื้นที่เต็ม */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* ปรับขนาดเป็น 100% */
+    height: 500px; /* กำหนดความสูงที่มากขึ้น */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -209,8 +213,8 @@ body {
 }
 
 canvas {
-    width: 100%;
-    height: 320px;
+    width: 100% !important; /* บังคับให้ขยายขนาด */
+    height: 100% !important; /* บังคับให้ขยายขนาด */
 }
 
 .pie-chart-container {
