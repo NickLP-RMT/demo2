@@ -126,17 +126,13 @@ body {
 
 /* กราฟวงกลม */
 .chart-card {
-    flex: 2;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
-
 
 .chart-card, .card-container {
     flex: 1;
@@ -146,21 +142,33 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.dashboard-content {
+    display: flex;
+    gap: 20px;
+}
+
+.cards-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    flex: 1;
+}
+
 /* ตั้งค่าให้การ์ดแต่ละใบมีความกว้างและสูงเท่ากัน */
 .card-container {
-    flex: 1;
-    height: 100%;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
+    border: 4px solid #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 4px solid #fff; /* เพิ่มกรอบ */
     transition: transform 0.3s;
 }
+
 .card-container:hover {
     transform: scale(1.05);
 }
@@ -171,6 +179,12 @@ body {
 .gook-san-card { background-color: #36A2EB; }
 .l-san-card { background-color: #4BC0C0; }
 
+.chart-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .dashboard-container {
     display: flex;
