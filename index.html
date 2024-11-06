@@ -28,30 +28,35 @@
     <!-- Dashboard Section -->
     <section id="dashboard" class="section active">
         <div class="dashboard-container">
-            <h2>Dashboard</h2>
+    <h2>Dashboard</h2>
 
-  <!-- แถวแรก: การ์ดของล่าม -->
-    <div class="dashboard-row">
-        <div class="card-container som-san-card">
-            <h3>SOM SAN</h3>
-            <p>จำนวนงาน: 40</p>
+    <div class="dashboard-content">
+        <!-- กลุ่มการ์ดล่าม -->
+        <div class="cards-section">
+            <div class="card-container som-san-card">
+                <h3>SOM SAN</h3>
+                <p>จำนวนงาน: 40</p>
+            </div>
+            <div class="card-container pooky-san-card">
+                <h3>POOKY SAN</h3>
+                <p>จำนวนงาน: 20</p>
+            </div>
+            <div class="card-container gook-san-card">
+                <h3>GOOK SAN</h3>
+                <p>จำนวนงาน: 30</p>
+            </div>
+            <div class="card-container l-san-card">
+                <h3>L SAN</h3>
+                <p>จำนวนงาน: 10</p>
+            </div>
         </div>
-        <div class="card-container pooky-san-card">
-            <h3>POOKY SAN</h3>
-            <p>จำนวนงาน: 20</p>
-        </div>
-        <div class="card-container gook-san-card">
-            <h3>GOOK SAN</h3>
-            <p>จำนวนงาน: 30</p>
-        </div>
-        <div class="card-container l-san-card">
-            <h3>L SAN</h3>
-            <p>จำนวนงาน: 10</p>
-        </div>
-        <!-- กราฟวงกลมอยู่ทางขวาสุด -->
-        <div class="chart-card">
-            <h3>ภาพรวมการจองทั้งหมด</h3>
-            <canvas id="bookingOverviewChart"></canvas>
+
+        <!-- กราฟวงกลม -->
+        <div class="chart-section">
+            <div class="chart-card">
+                <h3>ภาพรวมการจองทั้งหมด</h3>
+                <canvas id="bookingOverviewChart"></canvas>
+            </div>
         </div>
     </div>
 
