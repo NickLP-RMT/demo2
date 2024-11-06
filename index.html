@@ -25,27 +25,31 @@
         </ul>
     </nav>
 	
-<!-- ส่วนของ Dashboard -->
+<!-- Dashboard Section -->
 <section id="dashboard" class="section active">
     <div class="dashboard-container">
         <h2>Dashboard</h2>
 
-        <!-- ภาพรวมการจองทั้งหมด -->
-        <div class="chart-container">
-            <h3>ภาพรวมการจองทั้งหมด</h3>
-            <canvas id="bookingOverviewChart"></canvas>
+        <div class="dashboard-row">
+            <!-- ภาพรวมการจองทั้งหมด -->
+            <div class="chart-card">
+                <h3>ภาพรวมการจองทั้งหมด</h3>
+                <canvas id="bookingOverviewChart"></canvas>
+            </div>
+
+            <!-- การจองตามวันที่ -->
+            <div class="chart-card">
+                <h3>การจองตามวันที่</h3>
+                <canvas id="bookingHeatmapChart"></canvas>
+            </div>
         </div>
 
-        <!-- การจองตามวันที่ (Heatmap) -->
-        <div class="chart-container">
-            <h3>การจองตามวันที่</h3>
-            <canvas id="bookingHeatmapChart"></canvas>
-        </div>
-
-        <!-- การใช้ช่วงเวลาในการจองประจำวัน -->
-        <div class="chart-container">
-            <h3>การใช้ช่วงเวลาในการจองประจำวัน</h3>
-            <canvas id="timeUsageChart"></canvas>
+        <div class="dashboard-row full-width">
+            <!-- การใช้ช่วงเวลาในการจองประจำวัน -->
+            <div class="chart-card">
+                <h3>การใช้ช่วงเวลาในการจองประจำวัน</h3>
+                <canvas id="timeUsageChart"></canvas>
+            </div>
         </div>
     </div>
 </section>
