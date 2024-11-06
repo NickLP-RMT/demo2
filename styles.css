@@ -61,6 +61,8 @@ body {
 
 /* การ์ดข้อมูลล่าม */
 .interpreter-card {
+    width: 300px; /* หรือค่าคงที่ที่เหมาะสม */
+    height: 150px; /* ปรับตามที่ต้องการ */
     flex: 1;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -68,11 +70,6 @@ body {
     text-align: center;
     margin: 0 10px;
     color: #fff;
-}
-
-.interpreter-card, .card-container {
-    width: 300px; /* หรือค่าคงที่ เช่น 300px */
-    height: 150px; /* หรือค่าที่ต้องการให้เป็นสี่เหลี่ยมผืนผ้า */
 }
 /* กำหนดสีสำหรับแต่ละล่าม */
 .interpreter-card.som-san {
@@ -138,7 +135,7 @@ body {
     height: 100%;
 }
 
-.chart-card, .card-container {
+.chart-card {
     flex: 1;
     height: 100%; /* ให้การ์ดเต็มพื้นที่ของแถว */
     padding: 20px;
@@ -160,7 +157,8 @@ body {
 
 /* ตั้งค่าให้การ์ดแต่ละใบมีความกว้างและสูงเท่ากัน */
 .card-container {
-    width: 100%; /* ปรับให้การ์ดมีความกว้างเต็มในคอลัมน์ */
+    width: 300px; /* หรือค่าคงที่ที่เหมาะสม */
+    height: 150px; /* ปรับตามที่ต้องการ */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
