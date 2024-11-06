@@ -52,6 +52,39 @@ body {
 }
 
 /* ปรับปรุง layout ของ Dashboard */
+/* แถวข้อมูลล่ามแต่ละคน */
+.interpreter-info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* การ์ดข้อมูลล่าม */
+.interpreter-card {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.interpreter-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.interpreter-card p {
+    font-size: 18px;
+    color: #666;
+}
+
+.interpreter-card span {
+    font-weight: bold;
+    color: #2196F3;
+}
 .dashboard-container {
     max-width: 1200px;
     margin: 0 auto;
