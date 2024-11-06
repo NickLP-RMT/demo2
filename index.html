@@ -25,30 +25,24 @@
         </ul>
     </nav>
 	
-<!-- ส่วนของ Dashboard -->
-<section id="dashboard" class="section active">
-    <div class="dashboard-container">
-        <h2>Dashboard</h2>
+<div id="dashboard" class="section active">
+    <h2>Dashboard</h2>
 
-        <!-- ภาพรวมการจองทั้งหมด -->
-        <div class="chart-container">
-            <h3>ภาพรวมการจองทั้งหมด</h3>
-            <canvas id="bookingOverviewChart"></canvas>
+    <div class="dashboard-row">
+        <div class="dashboard-chart" id="translatorPieChartContainer">
+            <canvas id="translatorPieChart"></canvas>
         </div>
-
-        <!-- การจองตามวันที่ (Heatmap) -->
-        <div class="chart-container">
-            <h3>การจองตามวันที่</h3>
-            <canvas id="bookingHeatmapChart"></canvas>
-        </div>
-
-        <!-- การใช้ช่วงเวลาในการจองประจำวัน -->
-        <div class="chart-container">
-            <h3>การใช้ช่วงเวลาในการจองประจำวัน</h3>
-            <canvas id="timeUsageChart"></canvas>
+        <div class="dashboard-chart" id="timeSlotChartContainer">
+            <canvas id="timeSlotChart"></canvas>
         </div>
     </div>
-</section>
+
+    <div class="dashboard-row">
+        <div id="calendarHeatmapContainer">
+            <canvas id="calendarHeatmap"></canvas>
+        </div>
+    </div>
+</div>
 
     <!-- ส่วนของฟอร์มจอง -->
     <section id="booking" class="section">
