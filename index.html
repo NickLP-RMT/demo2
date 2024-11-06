@@ -25,52 +25,56 @@
         </ul>
     </nav>
 	
-<!-- Dashboard Section -->
-<section id="dashboard" class="section active">
-    <div class="dashboard-container">
-        <h2>Dashboard</h2>
-<!-- แถวข้อมูลล่ามแต่ละคน -->
-<div class="dashboard-row interpreter-info-row">
-    <div class="interpreter-card som-san">
-        <h4>SOM SAN</h4>
-        <p>งานทั้งหมด: <span id="somSanJobs">40</span></p>
-    </div>
-    <div class="interpreter-card gook-san">
-        <h4>GOOK SAN</h4>
-        <p>งานทั้งหมด: <span id="gookSanJobs">30</span></p>
-    </div>
-    <div class="interpreter-card pooky-san">
-        <h4>POOKY SAN</h4>
-        <p>งานทั้งหมด: <span id="pookySanJobs">20</span></p>
-    </div>
-    <div class="interpreter-card l-san">
-        <h4>L SAN</h4>
-        <p>งานทั้งหมด: <span id="lSanJobs">10</span></p>
-    </div>
-</div>
-        <div class="dashboard-row">
-            <!-- ภาพรวมการจองทั้งหมด -->
-            <div class="chart-card">
-                <h3>ภาพรวมการจองทั้งหมด</h3>
-                <canvas id="bookingOverviewChart"></canvas>
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section active">
+        <div class="dashboard-container">
+            <h2>Dashboard</h2>
+
+            <div class="dashboard-row">
+                <!-- การ์ดข้อมูลล่ามแต่ละคน (ด้านซ้าย) -->
+                <div class="card-column">
+                    <div class="translator-card" style="background-color: #FF6384;">
+                        <h4>SOM SAN</h4>
+                        <p>งานทั้งหมด: 40</p>
+                    </div>
+                    <div class="translator-card" style="background-color: #36A2EB;">
+                        <h4>GOOK SAN</h4>
+                        <p>งานทั้งหมด: 30</p>
+                    </div>
+                    <div class="translator-card" style="background-color: #FFCE56;">
+                        <h4>POOKY SAN</h4>
+                        <p>งานทั้งหมด: 20</p>
+                    </div>
+                    <div class="translator-card" style="background-color: #4BC0C0;">
+                        <h4>L SAN</h4>
+                        <p>งานทั้งหมด: 10</p>
+                    </div>
+                </div>
+
+                <!-- กราฟวงกลม ภาพรวมการจองทั้งหมด (ด้านขวา) -->
+                <div class="chart-card">
+                    <h3>ภาพรวมการจองทั้งหมด</h3>
+                    <canvas id="bookingOverviewChart"></canvas>
+                </div>
             </div>
 
-            <!-- การจองตามวันที่ -->
-            <div class="chart-card">
-                <h3>การจองตามวันที่</h3>
-                <canvas id="bookingHeatmapChart"></canvas>
+            <!-- การจองตามวันที่ (แถวที่สอง) -->
+            <div class="dashboard-row full-width">
+                <div class="chart-card">
+                    <h3>การจองตามวันที่</h3>
+                    <canvas id="bookingHeatmapChart"></canvas>
+                </div>
             </div>
-        </div>
 
-        <div class="dashboard-row full-width">
-            <!-- การใช้ช่วงเวลาในการจองประจำวัน -->
-            <div class="chart-card">
-                <h3>การใช้ช่วงเวลาในการจองประจำวัน</h3>
-                <canvas id="timeUsageChart"></canvas>
+            <!-- การใช้ช่วงเวลาในการจองประจำวัน (แถวที่สาม) -->
+            <div class="dashboard-row full-width">
+                <div class="chart-card">
+                    <h3>การใช้ช่วงเวลาในการจองประจำวัน</h3>
+                    <canvas id="timeUsageChart"></canvas>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ส่วนของฟอร์มจอง -->
     <section id="booking" class="section">
