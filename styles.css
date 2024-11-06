@@ -51,192 +51,60 @@ body {
     background-color: #1976d2;
 }
 
-/* ปรับปรุง layout ของ Dashboard */
-/* แถวข้อมูลล่ามแต่ละคน */
-.interpreter-info-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-/* การ์ดข้อมูลล่าม */
-.interpreter-card {
-    flex: 1;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center;
-    margin: 0 10px;
-    color: #fff;
-}
-
-/* กำหนดสีสำหรับแต่ละล่าม */
-.interpreter-card.som-san {
-    background-color: #FF6384; /* สีของ SOM SAN */
-}
-
-.interpreter-card.gook-san {
-    background-color: #36A2EB; /* สีของ GOOK SAN */
-}
-
-.interpreter-card.pooky-san {
-    background-color: #FFCE56; /* สีของ POOKY SAN */
-}
-
-.interpreter-card.l-san {
-    background-color: #4BC0C0; /* สีของ L SAN */
-}
-
-.interpreter-card h4 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.interpreter-card p {
-    font-size: 18px;
-}
-
-.interpreter-card span {
-    font-weight: bold;
-}
-
-/* แถวdashboard */
+/* โครงสร้าง Dashboard */
 .dashboard-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-.dashboard-row {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-}
-
-.dashboard-row.full-width {
-       width: 100%;
-}
-
-.card-column {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     gap: 20px;
-    flex: 1;
 }
 
-/* กราฟวงกลม */
+/* แถวข้อมูลล่าม */
+.interpreter-info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* การ์ด */
+.card {
+    flex: 1;
+    border-radius: 8px;
+    border: 4px solid #fff;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* การ์ดล่าม */
+.som-san-card { background-color: #FF6384; }
+.gook-san-card { background-color: #36A2EB; }
+.pooky-san-card { background-color: #FFCE56; }
+.l-san-card { background-color: #4BC0C0; }
+
+/* กราฟ */
 .chart-card {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 100%;
-}
-
-.chart-card, .card-container {
     flex: 1;
     height: 100%; /* ให้การ์ดเต็มพื้นที่ของแถว */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-.dashboard-content {
-    display: flex;
-    gap: 20px;
-}
-
-.cards-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-/* ตั้งค่าให้การ์ดแต่ละใบมีความกว้างและสูงเท่ากัน */
-.card-container {
-    width: 100%; /* ปรับให้การ์ดมีความกว้างเต็มในคอลัมน์ */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    border: 4px solid #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-}
-
-.card-container:hover {
-    transform: scale(1.05);
-}
-
-/* การ์ดสีตามล่าม */
-.som-san-card { background-color: #FF6384; }
-.pooky-san-card { background-color: #FFCE56; }
-.gook-san-card { background-color: #36A2EB; }
-.l-san-card { background-color: #4BC0C0; }
-
-.chart-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
 
 .chart-card:hover {
     transform: scale(1.02);
-}
-/* การ์ดล่ามแต่ละคน */
-.translator-card {
-    background-color: #fff; /* สีพื้นหลังของการ์ด */
-    border: 5px solid #fff; /* กรอบสีขาว */
-    border-radius: 8px; /* มุมโค้งของการ์ด */
-    padding: 20px;
-    text-align: center;
-    color: #333;
-    font-size: 18px;
-    transition: transform 0.3s, box-shadow 0.3s; /* เพิ่มเอฟเฟกต์การโฮเวอร์ */
-}
-
-/* การเพิ่มเอฟเฟกต์เมื่อโฮเวอร์ */
-.translator-card:hover {
-    transform: scale(1.05); /* ขยายการ์ดเล็กน้อยเมื่อโฮเวอร์ */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เงาเมื่อโฮเวอร์ */
-}
-
-canvas {
-    width: 100%;
-    height: 300px;
-    max-width: 100%;
-}
-
-.pie-chart-container {
-    height: 320px; /* ตั้งค่าความสูงให้เท่ากับการ์ดล่าม */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* สไตล์เนื้อหาหลัก */
-.section {
-    display: none;
-    padding: 20px;
-}
-
-.section.active {
-    display: block;
 }
 
 /* สไตล์ฟอร์ม */
@@ -291,266 +159,8 @@ canvas {
 .time-group > div {
     flex: 1;
 }
-/* เพิ่ม selector ที่ระบุให้แสดงไอคอนเฉพาะในปฏิทิน */
-.calendar-days .calendar-day.has-event::after {
-    content: '\1F4D6'; /* ไอคอนหนังสือ */
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px; /* ขนาดของไอคอนหนังสือ */
-    color: #4CAF50; /* สีเขียว */
-}
 
-/* ซ่อนไอคอนใน calendarModal */
-#calendarModal .calendar-day.has-event::after {
-    display: none;
-    content: none; /* ซ่อนไอคอนใน modal */
-}
-#calendarModal .modal-content thead tr:first-child {
-    background-color: #add8e6; /* สีพื้นหลังใหม่สำหรับแถวบนสุด */
-}
-
-button[type="submit"],
-.btn-submit {
-    width: 100%;
-    padding: 12px;
-    background-color: #2196F3;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.message-icon {
-    width: 64px; /* กำหนดขนาดไอคอน */
-    margin-bottom: 10px; /* ระยะห่างระหว่างไอคอนกับข้อความ */
-}
-button[type="submit"]:hover,
-.btn-submit:hover {
-    background-color: #1976d2;
-}
-
-/* สไตล์ปุ่มทั่วไป */
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #27ae60;
-    color: #ffffff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #219150;
-}
-
-/* สไตล์โมดอล */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(44, 62, 80, 0.9);
-    justify-content: center;
-    align-items: center;
-}
-
-#calendarModal .modal-content {
-    background-color: #ecf0f1;
-    padding: 20px 30px;
-    border: 1px solid #888;
-    width: 1200px; /* กำหนดความกว้างที่ต้องการ */
-    height: 750px; /* กำหนดความสูงที่ต้องการ */
-    max-width: 90%; /* ป้องกันไม่ให้เกินขนาดหน้าจอ */
-    max-height: 90%; /* ป้องกันไม่ให้เกินขนาดหน้าจอ */
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
-    overflow: auto; /* เพิ่มการเลื่อนถ้าข้อมูลเกินขนาด */
-}
-/* CSS สำหรับตกแต่ง Modal Message */
-.modal-content {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 400px;
-    text-align: center;
-    position: relative;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    color: #888;
-    cursor: pointer;
-}
-
-.message-box {
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-.success-message {
-    color: #28a745;
-}
-
-.error-message {
-    color: #dc3545;
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-.warning-message {
-    color: #ffc107;
-}
-
-.message-box i {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-/* สไตล์หัวข้อของตาราง */
-#calendarModal .modal-content table {
-    width: 100%;
-    border-collapse: collapse; /* รวมเส้นขอบของตารางให้เป็นเส้นเดียว */
-    table-layout: fixed; /* จัดวางคอลัมน์ให้คงที่ */
-}
-
-#calendarModal .modal-content th,
-#calendarModal .modal-content td {
-    border: 1px solid #555; /* กำหนดเส้นขอบของเซลล์เป็นสีเทาเข้ม */
-    padding: 15px; /* เพิ่มระยะห่างภายในเซลล์ */
-    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
-    vertical-align: middle; /* จัดข้อความให้อยู่ตรงกลางแนวตั้ง */
-    font-size: 12px; /* ปรับขนาดฟอนต์ให้เหมาะสม */
-    color: #333; /* สีตัวอักษร */
-    background-color: #fff; /* สีพื้นหลังของเซลล์ */
-    word-wrap: break-word; /* ทำให้ข้อความขึ้นบรรทัดใหม่ถ้ามีความยาวเกิน */
-}
-
-#calendarModal .modal-content th {
-    background-color: #f5f5f5; /* สีพื้นหลังของหัวตาราง */
-    font-weight: bold;
-}
-
-#calendarModal .modal-content td.has-event {
-    background-color: #f0f8ff; /* สีฟ้าอ่อนสำหรับเซลล์ที่มีเหตุการณ์ */
-}
-
-/* สไตล์แถวที่ถูกเลื่อนผ่าน */
-#calendarModal .modal-content tr:hover {
-    background-color: #f9f9f9; /* สีพื้นหลังเมื่อเลื่อนเมาส์ผ่านแถว */
-}
-
-/* ปรับขนาดและจัดวางปุ่มปิด */
-#calendarModal .modal-content span.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#calendarModal .modal-content span.close:hover,
-#calendarModal .modal-content span.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* ปุ่มรีเฟรช */
-#calendarModal .modal-content span.refresh {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    color: #555;
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-#calendarModal .modal-content span.refresh:hover {
-    color: #333;
-}
-
-/* ปุ่มปิดภายในโมดอล */
-#calendarModal .modal-content .close-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#calendarModal .modal-content .close-btn:hover {
-    background-color: #45a049;
-}
-
-/* สไตล์สำหรับหัวข้อรายละเอียด */
-#calendarModal .modal-content h3 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-/* สไตล์สปินเนอร์ */
-#calendarSpinner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    display: none; /* ซ่อน Spinner เริ่มต้น */
-}
-
-#calendarSpinner.active {
-    display: block; /* แสดง Spinner เมื่อมีการโหลดข้อมูล */
-}
-
-#spinnerModal {
-    display: none; /* ซ่อน spinner เริ่มต้น */
-    position: fixed; /* ตรึงตำแหน่งไว้ที่กลางหน้าจอ */
-    top: 0;
-    left: 0;
-    width: 100vw; /* ครอบคลุมทั้งหน้าจอ */
-    height: 100vh; /* ครอบคลุมทั้งหน้าจอ */
-    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสง */
-    z-index: 1000; /* เลเยอร์สูงเพื่อให้แสดงอยู่ด้านบน */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.spinner {
-    border: 12px solid #f3f3f3;
-    border-top: 12px solid #3498db;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    animation: spin 1.5s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* สไตล์ปฏิทิน */
+/* ปฏิทิน */
 .calendar {
     max-width: 100%; /* ปรับให้พอดีกับหน้าจอ */
     width: 100%;
@@ -590,40 +200,6 @@ button[type="submit"]:hover,
     background-color: #fdd835;
 }
 
-.time-slot {
-    font-size: 12px; /* ปรับขนาดฟอนต์ให้ใหญ่ขึ้นเล็กน้อย */
-}
-
-.bold-text {
-    font-weight: bold;
-}
-
-/* แถวหัวข้อวัน */
-.calendar-days.day-headers {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 5px;
-}
-
-.day-header {
-    font-size: 16px; /* ปรับขนาดฟอนต์ให้เหมาะสม */
-    height: 40px; /* กำหนดความสูงของแถวหัวข้อ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ddd; /* สีพื้นหลังของแถวหัวข้อ */
-    border-radius: 4px; /* มุมโค้งสำหรับแถวหัวข้อ */
-    border: 1px solid #ddd;
-}
-
-/* แถวของวันที่จอง */
-.calendar-days#calendarDays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 5px;
-    grid-auto-rows: 100px; /* กำหนดความสูงของแถวทั้งหมด */
-}
-
 .calendar-day {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -661,25 +237,81 @@ button[type="submit"]:hover,
     color: #4CAF50; /* สีเขียว */
 }
 
-/* สไตล์ส่วนอื่น ๆ */
-section h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+/* โมดอล */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(44, 62, 80, 0.9);
+    justify-content: center;
+    align-items: center;
 }
 
-section p {
-    font-size: 18px;
-    color: #555;
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 400px;
     text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* สไตล์สปินเนอร์ */
+.spinner {
+    border: 12px solid #f3f3f3;
+    border-top: 12px solid #3498db;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#spinnerModal {
+    display: none; /* ซ่อน spinner เริ่มต้น */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* ครอบคลุมทั้งหน้าจอ */
+    height: 100vh; /* ครอบคลุมทั้งหน้าจอ */
+    background-color: rgba(255, 255, 255, 0.8); /* พื้นหลังโปร่งแสง */
+    z-index: 1000; /* เลเยอร์สูง */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* การตอบสนองต่อหน้าจอขนาดกลาง */
 @media (max-width: 768px) {
     .calendar-day {
         height: 80px; /* ปรับลดความสูงสำหรับหน้าจอขนาดกลาง */
-        font-size: 14px; /* ปรับขนาดฟอนต์ */
+        font-size: 14px;
     }
 
     .calendar-header h2 {
@@ -690,13 +322,19 @@ section p {
         font-size: 14px;
     }
 
-    #calendarModal .modal-content {
-        width: 80%; /* ลดความกว้าง */
-        height: 70%; /* ลดความสูง */
+    .dashboard-row {
+        display: block;
     }
 
-    /* ปรับขนาด spinner สำหรับหน้าจอขนาดกลาง */
-    #calendarSpinner .spinner {
+    .chart-card {
+        margin-bottom: 20px;
+    }
+
+    canvas {
+        height: 250px;
+    }
+
+    .spinner {
         width: 60px;
         height: 60px;
         border-width: 8px;
@@ -706,8 +344,8 @@ section p {
 /* การตอบสนองต่อหน้าจอขนาดเล็ก */
 @media (max-width: 576px) {
     .calendar-day {
-        height: 60px; /* ปรับลดความสูงสำหรับหน้าจอขนาดเล็ก */
-        font-size: 12px; /* ลดขนาดฟอนต์ */
+        height: 60px;
+        font-size: 12px;
     }
 
     .calendar-header h2 {
@@ -719,26 +357,14 @@ section p {
     }
 
     #calendarModal .modal-content {
-        width: 95%; /* เพิ่มความกว้างให้พอดีกับหน้าจอ */
-        height: 80%; /* เพิ่มความสูงให้พอดีกับหน้าจอมือถือ */
-        padding: 15px 20px; /* ลด padding เพื่อให้มีพื้นที่ใช้สอยมากขึ้น */
+        width: 95%;
+        height: 80%;
+        padding: 15px 20px;
     }
 
-    /* ปรับขนาด spinner สำหรับหน้าจอขนาดเล็ก */
-    #calendarSpinner .spinner {
+    .spinner {
         width: 50px;
         height: 50px;
         border-width: 6px;
-    }
-        .dashboard-row {
-        display: block;
-    }
-
-    .chart-card {
-        margin-bottom: 20px;
-    }
-
-    canvas {
-        height: 250px;
     }
 }
