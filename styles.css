@@ -136,13 +136,24 @@ body {
 .chart-card:hover {
     transform: scale(1.02);
 }
+/* การ์ดล่ามแต่ละคน */
 .translator-card {
-    color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* สีพื้นหลังของการ์ด */
+    border: 2px solid #fff; /* กรอบสีขาว */
+    border-radius: 8px; /* มุมโค้งของการ์ด */
+    padding: 20px;
     text-align: center;
+    color: #333;
+    font-size: 18px;
+    transition: transform 0.3s, box-shadow 0.3s; /* เพิ่มเอฟเฟกต์การโฮเวอร์ */
 }
+
+/* การเพิ่มเอฟเฟกต์เมื่อโฮเวอร์ */
+.translator-card:hover {
+    transform: scale(1.05); /* ขยายการ์ดเล็กน้อยเมื่อโฮเวอร์ */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เงาเมื่อโฮเวอร์ */
+}
+
 canvas {
     width: 100%;
     height: 300px;
