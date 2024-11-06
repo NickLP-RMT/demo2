@@ -62,7 +62,7 @@ body {
 /* การ์ดข้อมูลล่าม */
 .interpreter-card {
     width: 300px; /* หรือค่าคงที่ที่เหมาะสม */
-    height: 150px; /* ปรับตามที่ต้องการ */
+    height: 120px; /* ปรับตามที่ต้องการ */
     flex: 1;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -158,7 +158,7 @@ body {
 /* ตั้งค่าให้การ์ดแต่ละใบมีความกว้างและสูงเท่ากัน */
 .card-container {
     width: 300px; /* หรือค่าคงที่ที่เหมาะสม */
-    height: 150px; /* ปรับตามที่ต้องการ */
+    height: 120px; /* ปรับตามที่ต้องการ */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
