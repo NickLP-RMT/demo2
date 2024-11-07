@@ -149,6 +149,12 @@ body {
     gap: 20px;
 }
 
+.chart-card h3 {
+    text-align: center;
+    margin-bottom: 20px; /* เพิ่มระยะห่างจากกราฟด้านล่าง */
+    font-weight: bold; /* ทำให้ข้อความดูชัดเจน */
+}
+
 /* ตั้งค่าให้การ์ดแต่ละใบมีความกว้างและสูงเท่ากัน */
 .card-container {
     width: 300px; /* หรือค่าคงที่ที่เหมาะสม */
