@@ -147,8 +147,9 @@ body {
 .cards-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* ช่องว่างระหว่างคอลัมน์และแถว */
-    row-gap: -20px; /* ปรับช่องว่างระหว่างแถว */
+    gap: 20px;
+    row-gap: 10px; /* ลดช่องว่างระหว่างแถว */
+    grid-auto-rows: minmax(120px, auto); /* กำหนดความสูงขั้นต่ำของแถว */
 }
 
 .chart-card h3 {
