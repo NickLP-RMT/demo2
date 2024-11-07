@@ -148,7 +148,6 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    row-gap: 0px; /* ลดช่องว่างระหว่างแถวให้มากที่สุด */
 }
 
 .chart-card h3 {
