@@ -260,9 +260,17 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* เงาเมื่อโฮเวอร์ */
 }
 
-canvas {
-   width: 100% !important; /* บังคับให้ขยายขนาด */
-    height: 100% !important; /* บังคับให้ขยายขนาด */
+/* สำหรับกราฟวงกลม */
+.pie-chart-container canvas {
+    width: 100% !important;
+    max-width: 250px; /* ขนาดสูงสุดเฉพาะกราฟวงกลม */
+    height: auto !important;
+}
+
+/* สำหรับกราฟอื่นๆ */
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important; /* หรือปรับขนาดตามที่ต้องการ */
 }
 
 .pie-chart-container {
