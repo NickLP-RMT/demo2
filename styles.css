@@ -263,7 +263,7 @@ body {
 /* สำหรับกราฟวงกลม */
 .pie-chart-container canvas {
     width: 100% !important;
-    max-width: 250px; /* ขนาดสูงสุดเฉพาะกราฟวงกลม */
+    max-width: 200px; /* ขนาดสูงสุดเฉพาะกราฟวงกลม */
     height: auto !important;
 }
 
