@@ -128,10 +128,11 @@ body {
 /* กราฟวงกลม */
 .chart-card {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* จัดเรียงเนื้อหาภายในจากบนลงล่าง */
     align-items: center;
+    justify-content: flex-start; /* จัดให้เนื้อหาเริ่มจากด้านบน */
     width: 100%; /* ปรับขนาดเป็น 100% */
-    height: 400px; /* กำหนดความสูงที่มากขึ้น */
+    height: 100%; /* กำหนดความสูงที่มากขึ้น */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -192,7 +193,11 @@ body {
 }
 /* ปรับขนาดของฟอนต์ในกราฟ */
 .chart-title {
-    font-size: 18px; /* ลดขนาดฟอนต์ของหัวข้อกราฟ */
+    text-align: center;
+    width: 100%; /* ให้ครอบคลุมความกว้างทั้งหมด */
+    margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างหัวข้อและกราฟ */
+    font-size: 18px; /* ปรับขนาดตามที่คุณต้องการ */
+    font-weight: bold;
 }
 .chart-card:hover {
     transform: scale(1.02);
