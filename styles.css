@@ -110,7 +110,8 @@ body {
 
 .dashboard-row {
     display: flex;
-    gap: 20px;
+    align-items: flex-start; /* จัดตำแหน่งด้านบนให้ตรงกัน */
+    gap: 20px;  /* ระยะห่างระหว่าง container */
     width: 100%;
 }
 
