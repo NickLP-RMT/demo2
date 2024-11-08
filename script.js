@@ -37,17 +37,13 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     options: {
         responsive: true,
-        plugins: {
-            legend: {
-                position: 'top'
-            },
-            tooltip: {
-                enabled: true
-            }
-        },
         animation: {
-            duration: 1000, // ระยะเวลาของอนิเมชันในหน่วยมิลลิวินาที
-            easing: 'easeOutBounce' // ประเภทของการเคลื่อนไหว (สามารถเปลี่ยนได้ เช่น 'linear', 'easeInOutQuad')
+            duration: 1000, // กำหนดระยะเวลาของอนิเมชัน
+            easing: 'easeOutBounce' // ประเภทของการเคลื่อนไหว
+        },
+        hover: {
+            mode: 'nearest',
+            animationDuration: 500 // เพิ่มการเคลื่อนไหวเมื่อโฮเวอร์
         }
     }
 });
