@@ -126,6 +126,14 @@ body {
 }
 
 /* กราฟวงกลม */
+.overview-chart-container {
+    width: 500px; /* กำหนดความกว้างคงที่ */
+    height: 500px; /* กำหนดความสูงคงที่ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .chart-card {
     display: flex;
     flex-direction: column; /* จัดเรียงเนื้อหาภายในจากบนลงล่าง */
