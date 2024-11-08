@@ -164,6 +164,9 @@ body {
     border-radius: 8px; /* มุมโค้ง */
     padding: 10px; /* ระยะห่างภายใน */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาสำหรับกรอบ */
+    margin-top: -20px; /* ปรับค่าได้ตามที่ต้องการ */
+    position: relative;
+    z-index: 1; /* ใช้เพื่อให้แน่ใจว่าเลเยอร์อยู่เหนือการ์ดหากจำเป็น */
 }
 
 .chart-card {
