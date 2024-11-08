@@ -268,7 +268,7 @@ body {
 }
 
 /* สำหรับกราฟอื่นๆ */
-.chart-container canvas {
+canvas {
     width: 100% !important;
     height: 100% !important; /* หรือปรับขนาดตามที่ต้องการ */
 }
