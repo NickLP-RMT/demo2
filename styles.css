@@ -132,6 +132,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff; /* กำหนดสีพื้นหลังสีขาว */
+    border-radius: 8px; /* มุมโค้ง */
+    padding: 20px; /* ระยะห่างภายใน */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาสำหรับกรอบ */
 }
 
 .chart-card {
