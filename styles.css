@@ -167,6 +167,11 @@ body {
     margin-top: -20px; /* ปรับค่าได้ตามที่ต้องการ */
     position: relative;
     z-index: 1; /* ใช้เพื่อให้แน่ใจว่าเลเยอร์อยู่เหนือการ์ดหากจำเป็น */
+    transition: transform 0.3s ease-in-out;
+}
+
+.overview-chart-container:hover {
+    transform: scale(1.05); /* เพิ่มการขยายเมื่อโฮเวอร์ */
 }
 
 .chart-card {
