@@ -262,7 +262,8 @@ body {
 
 canvas {
     width: 100% !important; /* บังคับให้ขยายขนาด */
-    height: 100% !important; /* บังคับให้ขยายขนาด */
+    max-width: 250px; /* ขนาดสูงสุด */
+    height: auto !important; /* ให้ความสูงปรับอัตโนมัติ */
 }
 
 .pie-chart-container {
