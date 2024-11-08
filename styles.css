@@ -281,6 +281,18 @@ body {
     align-items: center;
 }
 
+/* สำหรับกราฟการจองตามวันที่ */
+#bookingHeatmapChart {
+    width: 100% !important;
+    height: 300px; /* ตั้งค่าความสูงเฉพาะกราฟนี้ */
+}
+
+/* สำหรับกราฟการใช้ช่วงเวลาในการจองประจำวัน */
+#timeUsageChart {
+    width: 100% !important;
+    height: 300px; /* ตั้งค่าความสูงเฉพาะกราฟนี้ */
+}
+
 /* สไตล์เนื้อหาหลัก */
 .section {
     display: none;
