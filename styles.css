@@ -128,7 +128,6 @@ body {
 .cards-container {
     background-color: #fff; /* พื้นหลังสีขาว */
     border-radius: 8px; /* มุมโค้ง */
-    padding: 20px; /* ระยะห่างภายใน */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงากรอบ */
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* แสดงการ์ด 2 คอลัมน์ */
@@ -138,6 +137,9 @@ body {
 .cards-container,
 .overview-chart-container {
     height: 360px; /* ตั้งค่าความสูงเท่ากันสำหรับทั้งสอง container */
+    margin-top: 0;
+    margin-bottom: 20px; /* หรือค่าที่เหมาะสม */
+    padding: 0; /* ตั้งค่าความสม่ำเสมอ */
 }
 
 /* กราฟวงกลม */
@@ -149,7 +151,6 @@ body {
     width: 100%; /* ปรับขนาดเป็น 100% */
     background-color: #fff; /* กำหนดสีพื้นหลังสีขาว */
     border-radius: 8px; /* มุมโค้ง */
-    padding: 10px; /* ระยะห่างภายใน */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาสำหรับกรอบ */
 }
 
