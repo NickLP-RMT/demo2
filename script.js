@@ -45,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 enabled: true
             }
         },
-        hover: {
-            mode: 'nearest',
-            animationDuration: 400 // เพิ่มการขยายเมื่อวางเมาส์
+        animation: {
+            duration: 1000, // ระยะเวลาของอนิเมชันในหน่วยมิลลิวินาที
+            easing: 'easeOutBounce' // ประเภทของการเคลื่อนไหว (สามารถเปลี่ยนได้ เช่น 'linear', 'easeInOutQuad')
         }
     }
 });
