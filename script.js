@@ -20,10 +20,6 @@ navLinks.forEach(link => {
 // ตั้งค่าข้อมูลกราฟและการกำหนดค่าต่าง ๆ
 document.addEventListener("DOMContentLoaded", function() {
     // ภาพรวมการจองทั้งหมด (กราฟวงกลม)
-    const bookingOverviewCanvas = document.getElementById('bookingOverviewChart');
-    bookingOverviewCanvas.style.width = '500px'; // เพิ่มความกว้าง
-    bookingOverviewCanvas.style.height = '500px'; // เพิ่มความสูง
-
     const bookingOverviewCtx = document.getElementById('bookingOverviewChart').getContext('2d');
     const bookingOverviewChart = new Chart(bookingOverviewCtx, {
         type: 'pie',
