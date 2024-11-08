@@ -20,6 +20,9 @@ navLinks.forEach(link => {
 // ตั้งค่าข้อมูลกราฟและการกำหนดค่าต่าง ๆ
 document.addEventListener("DOMContentLoaded", function() {
     // ภาพรวมการจองทั้งหมด (กราฟวงกลม)
+    const bookingOverviewCanvas = document.getElementById('bookingOverviewChart');
+    bookingOverviewCanvas.height = 300; // ลดความสูงของกราฟลง
+
     const bookingOverviewCtx = document.getElementById('bookingOverviewChart').getContext('2d');
     const bookingOverviewChart = new Chart(bookingOverviewCtx, {
         type: 'pie',
@@ -40,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 // การจองตามวันที่ (Stacked Bar Chart แยกตามล่าม)
+const bookingHeatmapCanvas = document.getElementById('bookingHeatmapChart');
+bookingHeatmapCanvas.height = 300; // ลดความสูงของกราฟลง
+    
 const bookingHeatmapCtx = document.getElementById('bookingHeatmapChart').getContext('2d');
 const bookingHeatmapChart = new Chart(bookingHeatmapCtx, {
     type: 'bar',
@@ -87,6 +93,9 @@ const bookingHeatmapChart = new Chart(bookingHeatmapCtx, {
 });
 
     // การใช้ช่วงเวลาในการจองประจำวัน (กราฟแท่ง)
+    const timeUsageCanvas = document.getElementById('timeUsageChart');
+    timeUsageCanvas.height = 300; // ลดความสูงของกราฟลง
+    
     const timeUsageCtx = document.getElementById('timeUsageChart').getContext('2d');
     const timeUsageChart = new Chart(timeUsageCtx, {
         type: 'line',
