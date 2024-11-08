@@ -52,6 +52,11 @@ body {
 }
 
 /* ปรับปรุง layout ของ Dashboard */
+.dashboard-title {
+    margin-bottom: 20px; /* ปรับระยะห่างระหว่าง <h2> กับ container ด้านล่าง */
+}
+
+
 /* แถวข้อมูลล่ามแต่ละคน */
 .interpreter-info-row {
     display: flex;
@@ -106,6 +111,13 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 0; /* ยกเลิก margin ด้านบนถ้ามี */
+    padding-top: 0; /* ยกเลิก padding ด้านบนถ้ามี */
 }
 
 .dashboard-row {
@@ -211,13 +223,6 @@ body {
     margin-top: 20px; /* เพิ่ม Margin ด้านบนเพื่อแยกส่วนการ์ดและกราฟ */
 }
 
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
 /* ปรับขนาดของฟอนต์ในกราฟ */
 .chart-title {
     text-align: center;
