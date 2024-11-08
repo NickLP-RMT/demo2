@@ -281,6 +281,12 @@ body {
     align-items: center;
 }
 
+/* ลดขนาดกราฟวงกลม */
+#bookingOverviewChart {
+    max-width: 200px; /* ลดขนาดสูงสุด */
+    height: auto; /* ปรับความสูงอัตโนมัติ */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+}
 /* สำหรับกราฟการจองตามวันที่ */
 #bookingHeatmapChart {
     width: 100% !important;
