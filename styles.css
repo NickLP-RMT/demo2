@@ -262,9 +262,9 @@ body {
 
 /* สำหรับกราฟวงกลม */
 .pie-chart-container canvas {
-    width: 100% !important;
+    width: auto !important;
     max-width: 200px; /* ขนาดสูงสุดเฉพาะกราฟวงกลม */
-    height: 100% !important;
+    height: auto !important;
 }
 
 /* สำหรับกราฟอื่นๆ */
