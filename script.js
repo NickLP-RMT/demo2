@@ -26,22 +26,31 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const bookingOverviewCtx = document.getElementById('bookingOverviewChart').getContext('2d');
     const bookingOverviewChart = new Chart(bookingOverviewCtx, {
-        type: 'pie',
-        data: {
-            labels: ['SOM SAN', 'GOOK SAN', 'POOKY SAN', 'L SAN'], // แทนชื่อของล่าม
-            datasets: [{
-                label: 'Total Bookings',
-                data: [40, 30, 20, 10], // ตัวอย่างข้อมูลสำหรับการจองแต่ละคน
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'top' }
+    type: 'pie',
+    data: {
+        labels: ['SOM SAN', 'GOOK SAN', 'POOKY SAN', 'L SAN'],
+        datasets: [{
+            label: 'Total Bookings',
+            data: [40, 30, 20, 10],
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top'
+            },
+            tooltip: {
+                enabled: true
             }
+        },
+        hover: {
+            mode: 'nearest',
+            animationDuration: 400 // เพิ่มการขยายเมื่อวางเมาส์
         }
-    });
+    }
+});
 
 // การจองตามวันที่ (Stacked Bar Chart แยกตามล่าม)
 const bookingHeatmapCanvas = document.getElementById('bookingHeatmapChart');
