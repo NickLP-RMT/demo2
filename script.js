@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
     options: {
         responsive: true,
+        maintainAspectRatio: true, // เพิ่มบรรทัดนี้
         animation: {
             duration: 1000, // กำหนดระยะเวลาของอนิเมชัน
             easing: 'easeOutBounce' // ประเภทของการเคลื่อนไหว
