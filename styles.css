@@ -283,7 +283,7 @@ body {
 
 /* ลดขนาดกราฟวงกลม */
 #bookingOverviewChart {
-    max-width: 200px; /* ลดขนาดสูงสุด */
+    max-width: 300px; /* ลดขนาดสูงสุด */
     height: auto; /* ปรับความสูงอัตโนมัติ */
     margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
 }
