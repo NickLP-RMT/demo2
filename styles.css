@@ -125,6 +125,17 @@ body {
     flex: 1;
 }
 
+.cards-container {
+    background-color: #fff; /* พื้นหลังสีขาว */
+    border-radius: 8px; /* มุมโค้ง */
+    padding: 20px; /* ระยะห่างภายใน */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงากรอบ */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* แสดงการ์ด 2 คอลัมน์ */
+    gap: 15px; /* ช่องว่างระหว่างการ์ด */
+}
+
+
 /* กราฟวงกลม */
 .overview-chart-container {
     display: flex;
