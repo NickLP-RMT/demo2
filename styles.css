@@ -137,7 +137,7 @@ body {
 
 .cards-container,
 .overview-chart-container {
-    height: 400px; /* ตั้งค่าความสูงเท่ากันสำหรับทั้งสอง container */
+    height: 350px; /* ตั้งค่าความสูงเท่ากันสำหรับทั้งสอง container */
 }
 
 /* กราฟวงกลม */
