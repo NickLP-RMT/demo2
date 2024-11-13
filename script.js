@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         maintainAspectRatio: true, // เพิ่มบรรทัดนี้
         animation: {
             duration: 1000, // กำหนดระยะเวลาของอนิเมชัน
-            easing: 'easeOutBounce' // ประเภทของการเคลื่อนไหว
+            easing: 'easeOutCubic' // ประเภทของการเคลื่อนไหว
         },
         hover: {
             mode: 'nearest',
