@@ -56,6 +56,13 @@ body {
     margin-bottom: 20px; /* ปรับระยะห่างระหว่าง <h2> กับ container ด้านล่าง */
 }
 
+.month-search {
+    padding: 5px;
+    margin-left: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
 
 /* แถวข้อมูลล่ามแต่ละคน */
 .interpreter-info-row {
