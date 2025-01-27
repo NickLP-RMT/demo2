@@ -30,9 +30,29 @@
     <div class="dashboard-container">
     <h2 class="dashboard-title">Dashboard</h2>
     <div class="month-picker-container">
-    <input type="month" id="monthYearPicker" class="month-search" placeholder="เลือกเดือนและปี">
-    <button id="monthYearSubmit" class="btn-submit">Submit</button>
-    </div>
+<select id="monthPicker" class="month-search">
+                    <option value="" disabled selected>เลือกเดือน</option>
+                    <option value="01">มกราคม</option>
+                    <option value="02">กุมภาพันธ์</option>
+                    <option value="03">มีนาคม</option>
+                    <option value="04">เมษายน</option>
+                    <option value="05">พฤษภาคม</option>
+                    <option value="06">มิถุนายน</option>
+                    <option value="07">กรกฎาคม</option>
+                    <option value="08">สิงหาคม</option>
+                    <option value="09">กันยายน</option>
+                    <option value="10">ตุลาคม</option>
+                    <option value="11">พฤศจิกายน</option>
+                    <option value="12">ธันวาคม</option>
+                </select>
+                <select id="yearPicker" class="year-search">
+                    <option value="" disabled selected>เลือกปี</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                </select>
+                <button id="monthYearSubmit" class="btn-submit">Submit</button>
+            </div>
     <div class="dashboard-content">
         <!-- กลุ่มการ์ดล่าม -->
         <div class="cards-container">
