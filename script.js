@@ -1,3 +1,44 @@
+// เมื่อโหลดหน้า Dashboard ตั้งค่า monthYearPicker เป็นเดือน/ปีปัจจุบัน
+const monthYearPicker = document.getElementById('monthYearPicker');
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+const currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+monthYearPicker.value = `${currentYear}-${currentMonth}`;
+
+// เพิ่มปุ่ม Submit ข้าง ๆ monthYearPicker
+const submitButton = document.createElement('button');
+submitButton.textContent = 'Submit';
+submitButton.id = 'monthYearSubmit';
+submitButton.style.marginLeft = '10px'; // เพิ่มระยะห่างระหว่างปุ่มและ picker
+submitButton.style.padding = '5px 10px'; // กำหนดขนาดปุ่ม
+submitButton.style.backgroundColor = '#2196F3';
+submitButton.style.color = '#fff';
+submitButton.style.border = 'none';
+submitButton.style.borderRadius = '5px';
+submitButton.style.cursor = 'pointer';
+
+// ฟังก์ชันเมื่อกดปุ่ม Submit
+submitButton.addEventListener('click', () => {
+    const selectedMonthYear = monthYearPicker.value;
+    const [selectedYear, selectedMonth] = selectedMonthYear.split('-');
+
+    // เรียกฟังก์ชันอัปเดตข้อมูลใน Dashboard (อัปเดตกราฟและการ์ด)
+    updateDashboard(selectedYear, selectedMonth);
+});
+
+// ใส่ปุ่ม Submit หลัง monthYearPicker
+monthYearPicker.insertAdjacentElement('afterend', submitButton);
+
+// ตัวอย่างฟังก์ชันสำหรับอัปเดตข้อมูลใน Dashboard
+function updateDashboard(year, month) {
+    console.log(`Fetching data for: ${year}-${month}`);
+    // เรียก API หรืออัปเดตข้อมูลของกราฟและการ์ดที่เกี่ยวข้อง
+    // ตัวอย่าง: fetchDataForDashboard(year, month);
+}
+
+// เรียกใช้งานฟังก์ชันนี้เมื่อโหลดหน้า Dashboard
+updateDashboard(currentYear, currentMonth);
+
 // ฟังก์ชันสำหรับการจัดการ Tab Navigation
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('.section');
