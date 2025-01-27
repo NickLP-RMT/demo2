@@ -18,7 +18,7 @@ navLinks.forEach(link => {
 });
 
 function updateInterpreterCards(month, year) {
-  fetch(`https://https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec?month=${month}&year=${year}`)
+  fetch(`https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec?month=${month}&year=${year}`)
     .then(response => response.json())
     .then(data => {
       document.querySelector('.som-san-card p').textContent = `จำนวนงาน: ${data["SOM SAN"]}`;
@@ -35,7 +35,7 @@ document.getElementById('monthYearSubmit').addEventListener('click', function ()
     const year = document.getElementById('yearPicker').value;
 
     if (month && year) {
-        fetch(`https://<YOUR_SCRIPT_URL>?page=interpreterCards&month=${month}&year=${year}`)
+        fetch(`https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec?page=interpreterCards&month=${month}&year=${year}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data); // แสดงผลใน Console เพื่อดูข้อมูลที่ดึงมา
