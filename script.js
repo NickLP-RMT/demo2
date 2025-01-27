@@ -1,6 +1,7 @@
 // ฟังก์ชันสำหรับการจัดการ Tab Navigation
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('.section');
+const spinnerModal = document.getElementById('spinnerModal');
 
 navLinks.forEach(link => {
     link.addEventListener('click', function (e) {
@@ -35,6 +36,7 @@ document.getElementById('monthYearSubmit').addEventListener('click', function ()
     const year = document.getElementById('yearPicker').value;
 
     if (month && year) {
+        spinnerModal.style.display = 'flex'; // แสดง spinner
         fetch(`https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec?page=interpreterCards&month=${month}&year=${year}`)
             .then(response => response.json())
             .then(data => {
@@ -47,6 +49,9 @@ document.getElementById('monthYearSubmit').addEventListener('click', function ()
             .catch(error => {
                 console.error('Error fetching data:', error);
                 alert('Error fetching data. Please try again later.');
+            })
+            .finally(() => {
+                spinnerModal.style.display = 'none'; // ซ่อน spinner
             });
     } else {
         alert('กรุณาเลือกเดือนและปี');
