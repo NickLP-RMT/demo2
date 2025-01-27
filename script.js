@@ -17,15 +17,27 @@ navLinks.forEach(link => {
     });
 });
 
-// เพิ่มการทำงานเมื่อกดปุ่ม Submit
-document.getElementById('monthYearSubmit').addEventListener('click', function () {
-    const selectedMonthYear = document.getElementById('monthYearPicker').value;
-    if (selectedMonthYear) {
-        console.log(`Selected Month/Year: ${selectedMonthYear}`);
-        // ใส่ logic สำหรับอัปเดตข้อมูลที่นี่
-    } else {
-        alert('กรุณาเลือกเดือนและปี');
-    }
+function updateInterpreterCards(month, year) {
+  fetch(`https://https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec?month=${month}&year=${year}`)
+    .then(response => response.json())
+    .then(data => {
+      document.querySelector('.som-san-card p').textContent = `จำนวนงาน: ${data["SOM SAN"]}`;
+      document.querySelector('.gook-san-card p').textContent = `จำนวนงาน: ${data["GOOK SAN"]}`;
+      document.querySelector('.pooky-san-card p').textContent = `จำนวนงาน: ${data["POOKY SAN"]}`;
+      document.querySelector('.l-san-card p').textContent = `จำนวนงาน: ${data["L SAN"]}`;
+    })
+    .catch(error => console.error('Error fetching interpreter data:', error));
+}
+
+// Event เมื่อกดปุ่ม Submit
+document.getElementById('monthYearSubmit').addEventListener('click', () => {
+  const month = document.getElementById('monthPicker').value;
+  const year = document.getElementById('yearPicker').value;
+  if (month && year) {
+    updateInterpreterCards(month, year);
+  } else {
+    alert('กรุณาเลือกเดือนและปี');
+  }
 });
 
 // ตั้งค่าข้อมูลกราฟและการกำหนดค่าต่าง ๆ
@@ -181,7 +193,7 @@ form.onsubmit = function(event) {
 
     var formData = new FormData(form);
 
-    fetch('https://script.google.com/macros/s/AKfycbzb1E4usV64THPhxqOiXyJkCHbtdd5qUkUnPpGmg2y6XUPRQfqMPL2o_X-UYwilYQ0/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec', {
         method: 'POST',
         mode: 'cors',
         body: formData
@@ -294,7 +306,7 @@ function renderCalendar(month, year) {
         });
 
         // ตรวจสอบว่ามีการจองหรือไม่
-        const requestUrl = `https://script.google.com/macros/s/AKfycbzb1E4usV64THPhxqOiXyJkCHbtdd5qUkUnPpGmg2y6XUPRQfqMPL2o_X-UYwilYQ0/exec?page=calendar&date=${year}-${('0' + (month + 1)).slice(-2)}-${('0' + day).slice(-2)}`;
+        const requestUrl = `https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec?page=calendar&date=${year}-${('0' + (month + 1)).slice(-2)}-${('0' + day).slice(-2)}`;
 
         fetch(requestUrl)
             .then(response => response.json())
@@ -316,7 +328,7 @@ function loadEventsForDay(year, month, day) {
     const calendarSpinner = document.getElementById('calendarSpinner');
     calendarSpinner.classList.add('active'); // แสดง Spinner
 
-    const requestUrl = `https://script.google.com/macros/s/AKfycbzb1E4usV64THPhxqOiXyJkCHbtdd5qUkUnPpGmg2y6XUPRQfqMPL2o_X-UYwilYQ0/exec?page=calendar&date=${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`;
+    const requestUrl = `https://script.google.com/macros/s/AKfycbwqRz4I4UOFBSJeYxkb3Vzs3pm9QgEJlae_DTH6Ngwh0A5CkLYwIoijsKEdV9S81g/exec?page=calendar&date=${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`;
 
     fetch(requestUrl)
         .then(response => response.json())
