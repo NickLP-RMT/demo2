@@ -17,6 +17,17 @@ navLinks.forEach(link => {
     });
 });
 
+// เพิ่มการทำงานเมื่อกดปุ่ม Submit
+document.getElementById('monthYearSubmit').addEventListener('click', function () {
+    const selectedMonthYear = document.getElementById('monthYearPicker').value;
+    if (selectedMonthYear) {
+        console.log(`Selected Month/Year: ${selectedMonthYear}`);
+        // ใส่ logic สำหรับอัปเดตข้อมูลที่นี่
+    } else {
+        alert('กรุณาเลือกเดือนและปี');
+    }
+});
+
 // ตั้งค่าข้อมูลกราฟและการกำหนดค่าต่าง ๆ
 document.addEventListener("DOMContentLoaded", function() {
     // ภาพรวมการจองทั้งหมด (กราฟวงกลม)
