@@ -56,6 +56,11 @@ body {
     margin-bottom: 20px; /* ปรับระยะห่างระหว่าง <h2> กับ container ด้านล่าง */
 }
 
+.month-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* เพิ่มช่องว่างระหว่าง input และปุ่ม */
+}
 .month-search {
     padding: 5px;
     margin-left: 20px;
