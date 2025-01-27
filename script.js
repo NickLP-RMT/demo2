@@ -30,14 +30,27 @@ function updateInterpreterCards(month, year) {
 }
 
 // Event เมื่อกดปุ่ม Submit
-document.getElementById('monthYearSubmit').addEventListener('click', () => {
-  const month = document.getElementById('monthPicker').value;
-  const year = document.getElementById('yearPicker').value;
-  if (month && year) {
-    updateInterpreterCards(month, year);
-  } else {
-    alert('กรุณาเลือกเดือนและปี');
-  }
+document.getElementById('monthYearSubmit').addEventListener('click', function () {
+    const month = document.getElementById('monthPicker').value;
+    const year = document.getElementById('yearPicker').value;
+
+    if (month && year) {
+        fetch(`https://<YOUR_SCRIPT_URL>?page=interpreterCards&month=${month}&year=${year}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // แสดงผลใน Console เพื่อดูข้อมูลที่ดึงมา
+                document.querySelector('.som-san-card p').textContent = `จำนวนงาน: ${data["SOM SAN"]}`;
+                document.querySelector('.gook-san-card p').textContent = `จำนวนงาน: ${data["GOOK SAN"]}`;
+                document.querySelector('.pooky-san-card p').textContent = `จำนวนงาน: ${data["POOKY SAN"]}`;
+                document.querySelector('.l-san-card p').textContent = `จำนวนงาน: ${data["L SAN"]}`;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                alert('Error fetching data. Please try again later.');
+            });
+    } else {
+        alert('กรุณาเลือกเดือนและปี');
+    }
 });
 
 // ตั้งค่าข้อมูลกราฟและการกำหนดค่าต่าง ๆ
